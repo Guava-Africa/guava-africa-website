@@ -64,13 +64,13 @@ export default function Home() {
   // Partner logos - using SVG placeholders, replace with actual partner logos
   // Partner logos - replaced with images from public/partners
   const partners = [
-    { name: "afr", file: "afr.jpg" },
-    { name: "afrosoft", file: "afrosoft.jpg" },
-    { name: "Bankserve", file: "Bankserve.jpg" },
-    { name: "dfa", file: "dfa.jpg" },
-    { name: "nbs", file: "nbs.jpg" },
-    { name: "nexgo", file: "nexgo.jpg" },
-    { name: "tcib", file: "tcib.jpg" },
+    { name: "afr", file: "afr.jpg", link: "https://www.africapaciti.com/" },
+    { name: "afrosoft", file: "afrosoft.jpg", link: "https://www.afrosoft.co.zw/" },
+    { name: "Bankserve", file: "Bankserve.jpg", link: "https://www.bankservafrica.com/website/" },
+    { name: "dfa", file: "dfa.jpg", link: "https://dfafrica.co.zw/" },
+    { name: "nbs", file: "nbs.jpg", link: "https://www.nbs.co.zw/" },
+    { name: "nexgo", file: "nexgo.jpg", link: "https://www.nexgoglobal.com/" },
+    { name: "tcib", file: "tcib.jpg", link: "https://www.tcib.africa/" },
   ];
 
   // Duplicate partners twice for seamless scrolling
@@ -231,8 +231,8 @@ export default function Home() {
 
                 <div className="flex items-end justify-between mt-4 pt-4 border-t border-gray-200">
                   <div>
-                    <div className="text-2xl font-bold text-[#F39221]">{div.metric}</div>
-                    <div className="text-xs text-gray-500">{div.metricLabel}</div>
+                    {/* <div className="text-2xl font-bold text-[#F39221]">{div.metric}</div> */}
+                    {/* <div className="text-xs text-gray-500">{div.metricLabel}</div> */}
                   </div>
                   <Link href={`/${div.name.toLowerCase()}`}>
                     <button className="text-sm font-semibold text-[#F39221] hover:underline opacity-0 group-hover:opacity-100 transition cursor-pointer">
@@ -277,7 +277,7 @@ export default function Home() {
                     className="flex items-center justify-center min-w-40 px-3 py-4 bg-transparent transition-transform group"
                   >
                     <div className="w-40 h-28 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                      <Link href="#" aria-label={`Partner ${partner.name}`}>
+                      <Link href={partner.link} target="_blank" aria-label={`Partner ${partner.name}`}>
                         <Image src={`/partners/${partner.file}`} alt={partner.name} width={160} height={112} className="object-contain" />
                       </Link>
                     </div>
@@ -391,7 +391,7 @@ export default function Home() {
                           ))}
                         </div>
                       </div>
-                      <div className="bg-white/50 rounded-xl p-4">
+                      {/* <div className="bg-white/50 rounded-xl p-4">
                         <h4 className="font-bold text-gray-900 mb-3">Performance Metrics</h4>
                         <div className="text-3xl font-bold text-[#F39221]">{div.metric}</div>
                         <div className="text-sm text-gray-500 mb-3">{div.metricLabel}</div>
@@ -399,7 +399,7 @@ export default function Home() {
                           <div className="bg-linear-to-r from-[#F39221] to-[#91D050] h-2 rounded-full" style={{ width: "94%" }} />
                         </div>
                         <div className="text-xs text-gray-500 mt-2">+23% growth this quarter</div>
-                      </div>
+                      </div> */}
                     </div>
 
                     <div className="pt-4 border-t border-[#F39221]/20 flex justify-end">
@@ -444,8 +444,8 @@ export default function Home() {
                     </div>
                     <div className="md:w-64 p-4 rounded-xl bg-linear-to-br from-[#F39221]/5 to-[#91D050]/5 border border-gray-100">
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-[#F39221]">{div.metric}</div>
-                        <div className="text-xs text-gray-500 mb-3">{div.metricLabel}</div>
+                        {/* <div className="text-3xl font-bold text-[#F39221]">{div.metric}</div> */}
+                        {/* <div className="text-xs text-gray-500 mb-3">{div.metricLabel}</div> */}
                         <Link href={`/${div.name.toLowerCase()}`}>
                           <button className="w-full py-2 rounded-full border border-[#F39221] text-[#F39221] text-sm font-semibold hover:bg-[#F39221] hover:text-white transition cursor-pointer">
                             Explore {div.name} →
@@ -476,7 +476,7 @@ export default function Home() {
               Guava Africa is a dynamic technology company shaping Africa's digital future through innovative telecommunications, fintech, and technology solutions. As part of the Africapaciti Group of Companies, we serve as a Centre of Excellence with operations in South Africa and Zimbabwe, driving digital transformation across the continent. At our core, we empower both public and private sector clients with smart, scalable solutions that address everyday communication needs as well as complex technological challenges.
             </p>
             <Link href="/about">
-              <button className="px-8 py-3 rounded-full bg-linear-to-r from-[#F39221] to-[#91D050] text-white font-semibold shadow-md hover:shadow-lg transition">
+              <button className="px-8 py-3 cursor-pointer rounded-full bg-linear-to-r from-[#F39221] to-[#91D050] text-white font-semibold shadow-md hover:shadow-lg transition">
                 Learn More About Us →
               </button>
             </Link>

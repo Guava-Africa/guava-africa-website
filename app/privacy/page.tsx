@@ -93,7 +93,7 @@ export default function Privacy() {
                                 <p>
                                     We implement administrative, technical and physical safeguards designed to protect
                                     personal information. However, no system is completely secure — if you suspect a breach,
-                                    contact us immediately at privacy@guava.africa.
+                                    contact us immediately at info@guava.africa.
                                 </p>
                             </section>
 
@@ -101,7 +101,7 @@ export default function Privacy() {
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Your Rights</h3>
                                 <p>
                                     Depending on your jurisdiction you may have rights to access, correct, port, restrict,
-                                    or delete your personal data. To exercise these rights contact privacy@guava.africa and
+                                    or delete your personal data. To exercise these rights contact info@guava.africa and
                                     we will respond within applicable legal timeframes.
                                 </p>
                             </section>
@@ -125,7 +125,7 @@ export default function Privacy() {
                             <section className="p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-sm">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Contact</h3>
                                 <p>
-                                    For privacy questions or to exercise your rights, email: <a className="text-[#F39221]" href="mailto:privacy@guava.africa">privacy@guava.africa</a>
+                                    For privacy questions or to exercise your rights, email: <a className="text-[#F39221]" href="mailto:info@guava.africa">info@guava.africa</a>
                                 </p>
                             </section>
                         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -12,24 +13,28 @@ export default function Products() {
     const products = [
         {
             name: "SpiritPay",
-            desc: "Payment gateway tailored for the Spirit Embassy church. Secure online donations, tithes, and offerings with mobile app integration.",
+            desc: "All-in-one payment app for churches. Manage tithes, offerings, donations, event registrations, and all church-related payments seamlessly through a single platform.",
             division: "Pay",
             status: "In Development",
-            image: "/products/spiritpay.jpg",
-            imageBg: "bg-gradient-to-br from-[#F39221]/20 to-[#F39221]/5",
+            images: [
+                "/screenshots/spiritpay.webp",
+                "/screenshots/spiritpay.webp",
+                "/screenshots/spiritpay.webp"
+            ],
+            imageBg: "bg-linear-to-br from-[#F39221]/20 to-[#F39221]/5",
             icon: "⛪",
-            features: ["Church donations", "Mobile payments", "Secure gateway", "App integration"],
+            features: ["Tithes & offerings", "Event payments", "Donation tracking"],
             color: "#F39221"
         },
         {
             name: "HRX",
-            desc: "Comprehensive HR management system. Streamline employee management, payroll, and attendance with mobile app access.",
+            desc: "Complete HR management system with job posting, candidate tracking, employer portal, and centralized candidate management. Streamline your entire recruitment and HR operations.",
             division: "Tech",
             status: "In Development",
-            image: "/products/hrx.jpg",
-            imageBg: "bg-gradient-to-br from-[#91D050]/20 to-[#91D050]/5",
+            image: "/screenshots/hrx.webp",
+            imageBg: "bg-linear-to-br from-[#91D050]/20 to-[#91D050]/5",
             icon: "👥",
-            features: ["Employee management", "Attendance tracking", "Mobile app"],
+            features: ["Job postings", "Candidate tracking", "Employer portal"],
             color: "#91D050"
         },
         // {
@@ -38,7 +43,7 @@ export default function Products() {
         //     division: "Pay",
         //     status: "Live",
         //     image: "/products/pay-sdk.jpg",
-        //     imageBg: "bg-gradient-to-br from-[#F39221]/20 to-[#F39221]/5",
+        //     imageBg: "bg-linear-to-br from-[#F39221]/20 to-[#F39221]/5",
         //     icon: "💳",
         //     features: ["One-click checkout", "Subscription management", "Webhook events", "Mobile SDKs"],
         //     color: "#F39221"
@@ -49,7 +54,7 @@ export default function Products() {
         //     division: "Tel",
         //     status: "Live",
         //     image: "/products/sms-gateway.jpg",
-        //     imageBg: "bg-gradient-to-br from-[#91D050]/20 to-[#91D050]/5",
+        //     imageBg: "bg-linear-to-br from-[#91D050]/20 to-[#91D050]/5",
         //     icon: "📡",
         //     features: ["Bulk SMS", "Two-way messaging", "Delivery reports", "Short codes"],
         //     color: "#91D050"
@@ -60,7 +65,7 @@ export default function Products() {
         //     division: "Tech",
         //     status: "Beta",
         //     image: "/products/edge-compute.jpg",
-        //     imageBg: "bg-gradient-to-br from-[#F39221]/20 to-[#91D050]/10",
+        //     imageBg: "bg-linear-to-br from-[#F39221]/20 to-[#91D050]/10",
         //     icon: "⚡",
         //     features: ["Global edge locations", "Sub-50ms latency", "Auto-scaling", "Built-in caching"],
         //     color: "#F39221"
@@ -71,7 +76,7 @@ export default function Products() {
         //     division: "Pay",
         //     status: "Live",
         //     image: "/products/fraud-engine.jpg",
-        //     imageBg: "bg-gradient-to-br from-[#F39221]/20 to-[#F39221]/5",
+        //     imageBg: "bg-linear-to-br from-[#F39221]/20 to-[#F39221]/5",
         //     icon: "🛡️",
         //     features: ["Real-time scoring", "Custom rules", "ML models", "Case management"],
         //     color: "#F39221"
@@ -82,7 +87,7 @@ export default function Products() {
         //     division: "Tel",
         //     status: "Live",
         //     image: "/products/number-verify.jpg",
-        //     imageBg: "bg-gradient-to-br from-[#91D050]/20 to-[#91D050]/5",
+        //     imageBg: "bg-linear-to-br from-[#91D050]/20 to-[#91D050]/5",
         //     icon: "✅",
         //     features: ["Format validation", "Carrier lookup", "Line type detection", "Portability check"],
         //     color: "#91D050"
@@ -93,7 +98,7 @@ export default function Products() {
         //     division: "Tech",
         //     status: "Coming Soon",
         //     image: "/products/serverless.jpg",
-        //     imageBg: "bg-gradient-to-br from-[#F39221]/20 to-[#91D050]/10",
+        //     imageBg: "bg-linear-to-br from-[#F39221]/20 to-[#91D050]/10",
         //     icon: "☁️",
         //     features: ["Auto-scaling", "Multiple runtimes", "Built-in monitoring", "Custom domains"],
         //     color: "#F39221"
@@ -104,7 +109,7 @@ export default function Products() {
         //     division: "Pay",
         //     status: "Live",
         //     image: "/products/billing.jpg",
-        //     imageBg: "bg-gradient-to-br from-[#F39221]/20 to-[#F39221]/5",
+        //     imageBg: "bg-linear-to-br from-[#F39221]/20 to-[#F39221]/5",
         //     icon: "🔄",
         //     features: ["Flexible billing cycles", "Usage-based billing", "Invoice generation", "Payment retries"],
         //     color: "#F39221"
@@ -115,7 +120,7 @@ export default function Products() {
         //     division: "Tel",
         //     status: "Beta",
         //     image: "/products/voice-api.jpg",
-        //     imageBg: "bg-gradient-to-br from-[#91D050]/20 to-[#91D050]/5",
+        //     imageBg: "bg-linear-to-br from-[#91D050]/20 to-[#91D050]/5",
         //     icon: "📞",
         //     features: ["Call routing", "Conference calling", "Speech recognition", "Recording"],
         //     color: "#91D050"
@@ -126,7 +131,7 @@ export default function Products() {
         //     division: "Tech",
         //     status: "Live",
         //     image: "/products/storage.jpg",
-        //     imageBg: "bg-gradient-to-br from-[#F39221]/20 to-[#91D050]/10",
+        //     imageBg: "bg-linear-to-br from-[#F39221]/20 to-[#91D050]/10",
         //     icon: "📦",
         //     features: ["S3-compatible API", "Versioning", "Lifecycle policies", "CDN integration"],
         //     color: "#F39221"
@@ -143,7 +148,7 @@ export default function Products() {
 
             {/* Hero */}
             <section className="relative z-10 pt-32 pb-12 px-6">
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -162,7 +167,7 @@ export default function Products() {
 
             {/* Products Grid */}
             <section className="relative z-10 pb-20 px-6">
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {products.map((product, i) => (
                             <motion.div
@@ -176,8 +181,34 @@ export default function Products() {
                                 className="group rounded-xl bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all overflow-hidden cursor-pointer"
                             >
                                 {/* Product Image Area - Placeholder for app screenshots */}
-                                <div className={`h-64 ${product.imageBg} flex flex-col items-center justify-center relative overflow-hidden border-b border-gray-200`}>
-                                    <p className="text-gray-400 text-sm font-medium">App Screenshot</p>
+                                <div className={`h-64 ${product.imageBg} relative overflow-hidden border-b border-gray-200`}>
+                                    {product.images?.length ? (
+                                        <div className="grid h-full w-full gap-0" style={{ gridTemplateColumns: `repeat(${product.images.length}, 1fr)` }}>
+                                            {product.images.map((img, imgIdx) => (
+                                                <div key={imgIdx} className="relative h-full w-full overflow-hidden">
+                                                    <Image
+                                                        src={img}
+                                                        alt={`${product.name} screenshot ${imgIdx + 1}`}
+                                                        fill
+                                                        className="object-contain object-center"
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : product.image ? (
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src={product.image}
+                                                alt={`${product.name} screenshot`}
+                                                fill
+                                                className="object-cover object-center"
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <p className="text-gray-400 text-sm font-medium">App Screenshot</p>
+                                    )}
                                 </div>
 
                                 {/* Product Info */}

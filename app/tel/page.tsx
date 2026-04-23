@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
@@ -17,9 +18,15 @@ export default function Tel() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center mb-12"
                     >
-                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                            <span className="text-[#91D050]">Guava</span>Tel
-                        </h1>
+                        <div className="flex justify-center mb-6">
+                            <Image
+                                src="/logos/guava-tel.png"
+                                alt="GuavaTel Logo"
+                                width={200}
+                                height={100}
+                                className="h-auto"
+                            />
+                        </div>
                         <p className="text-xl text-gray-600">
                             Advanced telecommunications and connectivity infrastructure
                         </p>
