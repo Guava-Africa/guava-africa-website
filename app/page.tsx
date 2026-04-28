@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import planes from "@/public/planes.png";
 
 export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -28,6 +29,7 @@ export default function Home() {
       metric: "$2.4B",
       metricLabel: "Annual volume",
       icon: "💳",
+      image: "https://images.unsplash.com/photo-1718010571964-bac048b9ded0?q=80&w=1070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       features: ["POS systems", "Bulk payments", "Financial inclusion", "Custom platforms", "Reduced cash reliance", "Cost-effective solutions"],
       color: "#F39221",
       bgLight: "bg-orange-50",
@@ -41,6 +43,7 @@ export default function Home() {
       metric: "99.9%",
       metricLabel: "Uptime SLA",
       icon: "📡",
+      image: "https://images.unsplash.com/photo-1594915440248-1e419eba6611?q=80&w=1167&auto=format&fit=crop",
       features: ["Fiber networks", "VSAT connectivity", "Enterprise internet", "Network management", "Strategic partnerships", "Reliable infrastructure"],
       color: "#91D050",
       bgLight: "bg-green-50",
@@ -54,6 +57,7 @@ export default function Home() {
       metric: "500+",
       metricLabel: "Projects delivered",
       icon: "⚙️",
+      image: "https://images.unsplash.com/photo-1544980919-e17526d4ed0a?q=80&w=1171&auto=format&fit=crop",
       features: ["Custom software", "Web development", "Managed IT services", "Governance platforms", "Digital transformation", "Enterprise solutions"],
       color: "#F39221",
       bgLight: "bg-orange-50",
@@ -61,8 +65,7 @@ export default function Home() {
     }
   ];
 
-  // Partner logos - using SVG placeholders, replace with actual partner logos
-  // Partner logos - replaced with images from public/partners
+  // Partner logos - using images from public/partners
   const partners = [
     { name: "afr", file: "afr.jpg", link: "https://www.africapaciti.com/" },
     { name: "afrosoft", file: "afrosoft.jpg", link: "https://www.afrosoft.co.zw/" },
@@ -73,73 +76,90 @@ export default function Home() {
     { name: "tcib", file: "tcib.jpg", link: "https://www.tcib.africa/" },
   ];
 
-  // Duplicate partners twice for seamless scrolling
+  // Duplicate partners for seamless scrolling
   const scrollingPartners = [...partners, ...partners];
 
   return (
     <div className="relative min-h-screen bg-linear-to-br from-amber-50 via-white to-green-50 overflow-x-hidden">
 
-      {/* Background Elements */}
-      <motion.div
-        animate={{ x: mousePos.x - 300, y: mousePos.y - 300 }}
-        transition={{ type: "tween", duration: 0.3 }}
-        className="absolute w-150 h-150 rounded-full bg-[#F39221] opacity-10 blur-[100px] pointer-events-none"
-      />
-      <motion.div
-        animate={{ x: mousePos.x - 400, y: mousePos.y - 400 }}
-        transition={{ type: "tween", duration: 0.5 }}
-        className="absolute w-150 h-150 rounded-full bg-[#91D050] opacity-8 blur-[100px] pointer-events-none"
-      />
+      {/* Background Elements - hidden on mobile, visible on desktop */}
+      <div className="hidden md:block">
+        <motion.div
+          animate={{ x: mousePos.x - 300, y: mousePos.y - 300 }}
+          transition={{ type: "tween", duration: 0.3 }}
+          className="absolute w-[600px] h-[600px] rounded-full bg-[#F39221] opacity-10 blur-[100px] pointer-events-none"
+        />
+        <motion.div
+          animate={{ x: mousePos.x - 400, y: mousePos.y - 400 }}
+          transition={{ type: "tween", duration: 0.5 }}
+          className="absolute w-[600px] h-[600px] rounded-full bg-[#91D050] opacity-8 blur-[100px] pointer-events-none"
+        />
 
-      <motion.div
-        animate={{ scale: [1, 1.2, 1], x: [0, 100, 0], y: [0, 50, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 -right-48 w-96 h-96 rounded-full bg-[#F39221] opacity-10 blur-[120px]"
-      />
-      <motion.div
-        animate={{ scale: [1.2, 1, 1.2], x: [0, -100, 0], y: [0, -50, 0] }}
-        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 -left-48 w-96 h-96 rounded-full bg-[#91D050] opacity-10 blur-[120px]"
-      />
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], x: [0, 100, 0], y: [0, 50, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 -right-48 w-96 h-96 rounded-full bg-[#F39221] opacity-10 blur-[120px]"
+        />
+        <motion.div
+          animate={{ scale: [1.2, 1, 1.2], x: [0, -100, 0], y: [0, -50, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/4 -left-48 w-96 h-96 rounded-full bg-[#91D050] opacity-10 blur-[120px]"
+        />
 
-      <div className="absolute top-20 left-10 w-96 h-96 rounded-full bg-[#F39221]/5 blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-[#91D050]/5 blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 rounded-full bg-[#F39221]/5 blur-3xl" />
+        <div className="absolute top-20 left-10 w-96 h-96 rounded-full bg-[#F39221]/5 blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-[#91D050]/5 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[#F39221]/5 blur-3xl" />
+      </div>
 
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Section - Split Layout with Image */}
       <section className="relative z-10 pt-32 pb-20 px-6 min-h-screen flex items-center">
         <div className="max-w-6xl mx-auto w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center relative"
-          >
-            <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-6 leading-tight">
-              Disrupt the
-              <span className="bg-linear-to-r from-[#F39221] to-[#91D050] bg-clip-text text-transparent"> Status Quo</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Three divisions. One company. Infinite possibilities.
-              Guava provides the infrastructure for tomorrow's economy.
-            </p>
-
-            {/* Scroll indicator */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-1 items-center">
             <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="absolute -bottom-20 left-1/2 -translate-x-1/2"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
             >
-              <div className="w-6 h-10 rounded-full border-2 border-gray-400 flex justify-center">
-                <div className="w-1 h-2 bg-[#F39221] rounded-full mt-2" />
-              </div>
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight">
+                Disrupt the
+                <span className="bg-linear-to-r from-[#F39221] to-[#91D050] bg-clip-text text-transparent"> Status Quo</span>
+              </h1>
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl">
+                Three divisions. One company. Infinite possibilities.
+                Guava provides the infrastructure for tomorrow's economy.
+              </p>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative lg:w-140 rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src={planes.src}
+                alt="Technology"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="absolute left-1/2 -translate-x-1/2 mt-9"
+          >
+            <div className="w-6 h-10 rounded-full border-2 border-gray-400 flex justify-center">
+              <div className="w-1 h-2 bg-[#F39221] rounded-full mt-2" />
+            </div>
           </motion.div>
 
-          {/* Enhanced Vector/Sketch in bottom right - more prominent */}
-          <div className="absolute bottom-0 right-0 opacity-40 pointer-events-none">
+          {/* Enhanced Vector/Sketch in bottom right - hidden on mobile */}
+          <div className="hidden md:block absolute bottom-0 right-0 opacity-40 pointer-events-none">
             <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
               <motion.path
                 animate={{ pathLength: [0, 1, 0] }}
@@ -192,10 +212,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Three <span className="text-[#F39221]">Divisions</span>
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
               One unified company. Built for scale. Ready for the future.
             </p>
           </motion.div>
@@ -209,12 +229,12 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
                 onClick={() => setActiveDivision(div.name.toLowerCase())}
-                className={`group p-8 rounded-2xl ${div.bgLight} backdrop-blur-sm border ${div.borderLight} shadow-md hover:shadow-xl transition-all cursor-pointer`}
+                className={`group p-6 md:p-8 rounded-2xl ${div.bgLight} backdrop-blur-sm border ${div.borderLight} shadow-md hover:shadow-xl transition-all cursor-pointer`}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="text-4xl">{div.icon}</div>
+                  <div className="text-3xl md:text-4xl">{div.icon}</div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">{div.name}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900">{div.name}</h3>
                     <div className="text-xs text-[#F39221] font-mono">{div.tag}</div>
                   </div>
                 </div>
@@ -230,10 +250,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-end justify-between mt-4 pt-4 border-t border-gray-200">
-                  <div>
-                    {/* <div className="text-2xl font-bold text-[#F39221]">{div.metric}</div> */}
-                    {/* <div className="text-xs text-gray-500">{div.metricLabel}</div> */}
-                  </div>
+                  <div />
                   <Link href={`/${div.name.toLowerCase()}`}>
                     <button className="text-sm font-semibold text-[#F39221] hover:underline opacity-0 group-hover:opacity-100 transition cursor-pointer">
                       Learn more →
@@ -255,28 +272,27 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
               Trusted by <span className="text-[#F39221]">industry leaders</span>
             </h2>
-            <p className="text-gray-500 text-sm">Join other companies building with Guava</p>
+            <p className="text-gray-500 text-xs md:text-sm">Join other companies building with Guava</p>
           </motion.div>
 
-          {/* Scrolling Carousel */}
           <div className="relative overflow-hidden">
             <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-white/50 to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-white/50 to-transparent z-10 pointer-events-none" />
 
             <div className="overflow-hidden">
               <div
-                className="flex gap-8 py-4"
+                className="flex gap-4 md:gap-8 py-4"
                 style={{ width: "max-content", animation: "partnersScroll 24s linear infinite" }}
               >
                 {scrollingPartners.map((partner, idx) => (
                   <div
                     key={`${partner.file}-${idx}`}
-                    className="flex items-center justify-center min-w-40 px-3 py-4 bg-transparent transition-transform group"
+                    className="flex items-center justify-center min-w-24 md:min-w-40 px-2 md:px-3 py-2 md:py-4 bg-transparent transition-transform group"
                   >
-                    <div className="w-40 h-28 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                    <div className="w-20 h-14 md:w-40 md:h-28 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                       <Link href={partner.link} target="_blank" aria-label={`Partner ${partner.name}`}>
                         <Image src={`/partners/${partner.file}`} alt={partner.name} width={160} height={112} className="object-contain" />
                       </Link>
@@ -293,30 +309,10 @@ export default function Home() {
               `}</style>
             </div>
           </div>
-
-          {/* Partner Stats */}
-          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-gray-200">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-[#F39221]">500+</div>
-              <div className="text-xs text-gray-500 mt-1">Active Partners</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-[#91D050]">50+</div>
-              <div className="text-xs text-gray-500 mt-1">Countries</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-[#F39221]">$2.4B</div>
-              <div className="text-xs text-gray-500 mt-1">Partner Transaction Volume</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-[#91D050]">99.9%</div>
-              <div className="text-xs text-gray-500 mt-1">Partner Satisfaction</div>
-            </div>
-          </div> */}
         </div>
       </section>
 
-      {/* What We Offer Section - Detailed */}
+      {/* What We Offer Section - Detailed WITH IMAGES */}
       <section id="what-we-offer" className="relative z-10 py-20 px-6 bg-white/80">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -325,15 +321,15 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               What We <span className="text-[#91D050]">Offer</span>
             </h2>
-            <p className="text-gray-600 text-lg">Deep dive into each division's capabilities</p>
+            <p className="text-gray-600 text-base md:text-lg">Deep dive into each division's capabilities</p>
 
-            <div className="flex justify-center gap-3 mt-8">
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-8">
               <button
                 onClick={() => setActiveDivision(null)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition ${activeDivision === null
+                className={`px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium transition ${activeDivision === null
                   ? "bg-linear-to-r from-[#F39221] to-[#91D050] text-white"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
@@ -344,7 +340,7 @@ export default function Home() {
                 <button
                   key={tab}
                   onClick={() => setActiveDivision(tab)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition ${activeDivision === tab
+                  className={`px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium transition ${activeDivision === tab
                     ? "bg-linear-to-r from-[#F39221] to-[#91D050] text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                     }`}
@@ -360,80 +356,79 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mb-8 p-8 rounded-2xl bg-linear-to-r from-[#F39221]/5 to-[#91D050]/5 border border-[#F39221]/20 shadow-lg"
+              className="mb-8 p-4 md:p-8 rounded-2xl bg-linear-to-r from-[#F39221]/5 to-[#91D050]/5 border border-[#F39221]/20 shadow-lg"
             >
               {(() => {
                 const div = divisions.find(d => d.name.toLowerCase() === activeDivision);
                 if (!div) return null;
                 return (
-                  <>
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="text-6xl">{div.icon}</div>
-                      <div>
-                        <h3 className="text-3xl font-bold text-gray-900">{div.name}</h3>
-                        <p className="text-gray-600">{div.tag}</p>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center">
+                    <div>
+                      <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                        <div className="text-4xl md:text-6xl">{div.icon}</div>
+                        <div>
+                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{div.name}</h3>
+                          <p className="text-gray-600 text-sm md:text-base">{div.tag}</p>
+                        </div>
                       </div>
-                    </div>
-                    <p className="text-gray-700 text-lg mb-8 leading-relaxed">{div.fullDesc}</p>
+                      <p className="text-gray-700 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">{div.fullDesc}</p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                      <div>
+                      <div className="mb-6 md:mb-8">
                         <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                           <span className="w-2 h-2 rounded-full bg-[#F39221]" />
                           Key Features
                         </h4>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                           {div.features.map((feature, idx) => (
                             <div key={idx} className="flex items-center gap-2">
                               <div className="w-1.5 h-1.5 rounded-full bg-[#F39221]" />
-                              <span className="text-gray-600 text-sm">{feature}</span>
+                              <span className="text-gray-600 text-xs md:text-sm">{feature}</span>
                             </div>
                           ))}
                         </div>
                       </div>
-                      {/* <div className="bg-white/50 rounded-xl p-4">
-                        <h4 className="font-bold text-gray-900 mb-3">Performance Metrics</h4>
-                        <div className="text-3xl font-bold text-[#F39221]">{div.metric}</div>
-                        <div className="text-sm text-gray-500 mb-3">{div.metricLabel}</div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-linear-to-r from-[#F39221] to-[#91D050] h-2 rounded-full" style={{ width: "94%" }} />
-                        </div>
-                        <div className="text-xs text-gray-500 mt-2">+23% growth this quarter</div>
-                      </div> */}
+
+                      <div className="pt-4 border-t border-[#F39221]/20">
+                        <button className="px-4 md:px-6 py-2 rounded-full bg-linear-to-r from-[#F39221] to-[#91D050] text-white font-semibold hover:shadow-lg transition text-sm md:text-base">
+                          Request {div.name} Demo →
+                        </button>
+                      </div>
                     </div>
 
-                    <div className="pt-4 border-t border-[#F39221]/20 flex justify-end">
-                      <button className="px-6 py-2 rounded-full bg-linear-to-r from-[#F39221] to-[#91D050] text-white font-semibold hover:shadow-lg transition">
-                        Request {div.name} Demo →
-                      </button>
+                    <div className="h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+                      <img
+                        src={div.image}
+                        alt={div.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                  </>
+                  </div>
                 );
               })()}
             </motion.div>
           )}
 
-          {/* All divisions view - detailed cards */}
+          {/* All divisions view - detailed cards WITH IMAGES */}
           {!activeDivision && (
-            <div className="grid grid-cols-1 gap-8">
+            <div className="grid grid-cols-1 gap-6 md:gap-8">
               {divisions.map((div, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="p-8 rounded-2xl bg-white border border-gray-200 shadow-md hover:shadow-lg transition"
+                  className="p-4 md:p-8 rounded-2xl bg-white border border-gray-200 shadow-md hover:shadow-lg transition"
                 >
-                  <div className="flex flex-col md:flex-row gap-8">
+                  <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="text-5xl">{div.icon}</div>
+                        <div className="text-4xl md:text-5xl">{div.icon}</div>
                         <div>
-                          <h3 className="text-2xl font-bold text-gray-900">{div.name}</h3>
-                          <div className="text-sm text-[#F39221] font-mono">{div.tag}</div>
+                          <h3 className="text-xl md:text-2xl font-bold text-gray-900">{div.name}</h3>
+                          <div className="text-xs md:text-sm text-[#F39221] font-mono">{div.tag}</div>
                         </div>
                       </div>
-                      <p className="text-gray-600 leading-relaxed mb-4">{div.fullDesc}</p>
+                      <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">{div.fullDesc}</p>
                       <div className="flex flex-wrap gap-2">
                         {div.features.map((f, i) => (
                           <span key={i} className="text-xs px-2 py-1 rounded-full bg-[#F39221]/10 text-[#F39221]">
@@ -441,17 +436,20 @@ export default function Home() {
                           </span>
                         ))}
                       </div>
-                    </div>
-                    <div className="md:w-64 p-4 rounded-xl bg-linear-to-br from-[#F39221]/5 to-[#91D050]/5 border border-gray-100">
-                      <div className="text-center">
-                        {/* <div className="text-3xl font-bold text-[#F39221]">{div.metric}</div> */}
-                        {/* <div className="text-xs text-gray-500 mb-3">{div.metricLabel}</div> */}
+                      <div className="mt-6">
                         <Link href={`/${div.name.toLowerCase()}`}>
-                          <button className="w-full py-2 rounded-full border border-[#F39221] text-[#F39221] text-sm font-semibold hover:bg-[#F39221] hover:text-white transition cursor-pointer">
+                          <button className="px-4 md:px-6 py-2 rounded-full border border-[#F39221] text-[#F39221] text-sm font-semibold hover:bg-[#F39221] hover:text-white transition cursor-pointer">
                             Explore {div.name} →
                           </button>
                         </Link>
                       </div>
+                    </div>
+                    <div className="md:w-80 h-48 md:h-64 rounded-xl overflow-hidden shadow-lg">
+                      <img
+                        src={div.image}
+                        alt={div.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </motion.div>
@@ -469,14 +467,14 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               About <span className="text-[#F39221]">Guava</span>
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
               Guava Africa is a dynamic technology company shaping Africa's digital future through innovative telecommunications, fintech, and technology solutions. As part of the Africapaciti Group of Companies, we serve as a Centre of Excellence with operations in South Africa and Zimbabwe, driving digital transformation across the continent. At our core, we empower both public and private sector clients with smart, scalable solutions that address everyday communication needs as well as complex technological challenges.
             </p>
             <Link href="/about">
-              <button className="px-8 py-3 cursor-pointer rounded-full bg-linear-to-r from-[#F39221] to-[#91D050] text-white font-semibold shadow-md hover:shadow-lg transition">
+              <button className="px-6 md:px-8 py-3 cursor-pointer rounded-full bg-linear-to-r from-[#F39221] to-[#91D050] text-white font-semibold shadow-md hover:shadow-lg transition text-sm md:text-base">
                 Learn More About Us →
               </button>
             </Link>
