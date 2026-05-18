@@ -155,7 +155,7 @@ export default function About() {
                             className="relative h-80 rounded-2xl overflow-hidden shadow-2xl"
                         >
                             <img
-                                src="https://images.pexels.com/photos/9487229/pexels-photo-9487229.jpeg?_gl=1*68bi8v*_ga*MTg3OTg2OTc1OC4xNzcyNjEyNjQ0*_ga_8JE65Q40S6*czE3NzcyODM4OTIkbzIkZzEkdDE3NzcyODQxMjUkajEyJGwwJGgw"
+                                src="team.png"
                                 alt="Black tech professionals working together"
                                 className="w-full h-full object-cover"
                             />
@@ -200,7 +200,7 @@ export default function About() {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                             <div className="h-64 rounded-xl overflow-hidden shadow-lg">
                                 <img
-                                    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
+                                    src="/ourstory.png"
                                     alt="Black colleagues in a meeting"
                                     className="w-full h-full object-cover"
                                 />
@@ -235,7 +235,7 @@ export default function About() {
                             </div>
                             <div className="h-64 rounded-xl overflow-hidden shadow-lg">
                                 <img
-                                    src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg"
+                                    src="techgap.png"
                                     alt="Black man presenting to team"
                                     className="w-full h-full object-cover"
                                 />

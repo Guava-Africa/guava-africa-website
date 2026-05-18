@@ -65,12 +65,12 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div className="text-gray-500 text-xs">
-                        © {new Date().getFullYear()} Guava. All rights reserved. Disrupting the Status Quo.
+                    <div className="text-gray-200 text-xs">
+                        © {new Date().getFullYear()} Guava. All rights reserved. <Link href="https://africapaciti.com" target="_blank" className="hover:text-blue-400">An Africapaciti Company</Link>
                     </div>
                     <div className="flex gap-6">
-                        <Link href="/privacy" className="text-gray-500 text-xs hover:text-[#F39221] transition">Privacy Policy</Link>
-                        <Link href="/terms" className="text-gray-500 text-xs hover:text-[#F39221] transition">Terms of Service</Link>
+                        <Link href="/privacy" className="text-gray-200 text-xs hover:text-[#F39221] transition">Privacy Policy</Link>
+                        <Link href="/terms" className="text-gray-200 text-xs hover:text-[#F39221] transition">Terms of Service</Link>
                     </div>
                 </div>
             </div>

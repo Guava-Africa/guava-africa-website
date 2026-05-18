@@ -273,7 +273,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-              Trusted by <span className="text-[#F39221]">industry leaders</span>
+              Our<span className="text-[#F39221]"> partners</span>
             </h2>
             <p className="text-gray-500 text-xs md:text-sm">Join other companies building with Guava</p>
           </motion.div>
@@ -285,7 +285,7 @@ export default function Home() {
             <div className="overflow-hidden">
               <div
                 className="flex gap-4 md:gap-8 py-4"
-                style={{ width: "max-content", animation: "partnersScroll 24s linear infinite" }}
+                style={{ width: "max-content", animation: "partnersScroll 30s linear infinite" }}
               >
                 {scrollingPartners.map((partner, idx) => (
                   <div
@@ -388,11 +388,11 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t border-[#F39221]/20">
+                      {/* <div className="pt-4 border-t border-[#F39221]/20">
                         <button className="px-4 md:px-6 py-2 rounded-full bg-linear-to-r from-[#F39221] to-[#91D050] text-white font-semibold hover:shadow-lg transition text-sm md:text-base">
                           Request {div.name} Demo →
                         </button>
-                      </div>
+                      </div> */}
                     </div>
 
                     <div className="h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
