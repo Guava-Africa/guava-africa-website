@@ -87,12 +87,12 @@ export default function Home() {
         <motion.div
           animate={{ x: mousePos.x - 300, y: mousePos.y - 300 }}
           transition={{ type: "tween", duration: 0.3 }}
-          className="absolute w-[600px] h-[600px] rounded-full bg-[#F39221] opacity-10 blur-[100px] pointer-events-none"
+          className="absolute w-150 h-150 rounded-full bg-[#F39221] opacity-10 blur-[100px] pointer-events-none"
         />
         <motion.div
           animate={{ x: mousePos.x - 400, y: mousePos.y - 400 }}
           transition={{ type: "tween", duration: 0.5 }}
-          className="absolute w-[600px] h-[600px] rounded-full bg-[#91D050] opacity-8 blur-[100px] pointer-events-none"
+          className="absolute w-150 h-150 rounded-full bg-[#91D050] opacity-8 blur-[100px] pointer-events-none"
         />
 
         <motion.div
@@ -108,7 +108,7 @@ export default function Home() {
 
         <div className="absolute top-20 left-10 w-96 h-96 rounded-full bg-[#F39221]/5 blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-[#91D050]/5 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[#F39221]/5 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 rounded-full bg-[#F39221]/5 blur-3xl" />
       </div>
 
       <Navbar />

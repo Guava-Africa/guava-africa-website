@@ -37,6 +37,45 @@ export default function Products() {
             features: ["Job postings", "Candidate tracking", "Employer portal"],
             color: "#91D050"
         },
+        {
+            name: "ACX (Africa Credit Exchange)",
+            desc: "A dual-purpose platform combining loan application processing with a comprehensive credit rating system. Streamlines international credit assessment and borrowing.",
+            division: "Pay",
+            status: "In Development",
+            images: [
+                "/screenshots/acx.webp",
+            ],
+            imageBg: "bg-linear-to-br from-[#F39221]/20 to-[#F39221]/5",
+            icon: "💱",
+            features: ["Loan applications", "Credit rating system", "International credit exchange"],
+            color: "#F39221"
+        },
+        {
+            name: "GuavaSupport",
+            desc: "Customer support portal for clients seeking technical assistance with our applications or other technical issues. Provides streamlined ticket management and support resolution.",
+            division: "Tech",
+            status: "In Development",
+            images: [
+                "/screenshots/guavasupport.webp",
+            ],
+            imageBg: "bg-linear-to-br from-[#91D050]/20 to-[#91D050]/5",
+            icon: "🎧",
+            features: ["Ticket management", "Client support", "Technical assistance"],
+            color: "#91D050"
+        },
+        {
+            name: "GuavaTel",
+            desc: "Internet service provider solution powered by Liquid delivering reliable internet connectivity to communities. Focused on bridging the digital divide and providing accessible internet to the people.",
+            division: "Tel",
+            status: "In Development",
+            images: [
+                "/screenshots/guavatel.webp",
+            ],
+            imageBg: "bg-linear-to-br from-[#00B4D8]/20 to-[#00B4D8]/5",
+            icon: "📡",
+            features: ["Internet connectivity", "Community access", "Network solutions"],
+            color: "#00B4D8"
+        }
     ];
 
     // Helper function to get status color
