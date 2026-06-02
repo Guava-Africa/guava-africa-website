@@ -57,7 +57,8 @@ export default function Home() {
       metric: "500+",
       metricLabel: "Projects delivered",
       icon: "⚙️",
-      image: "https://images.unsplash.com/photo-1544980919-e17526d4ed0a?q=80&w=1171&auto=format&fit=crop",
+      // image: "https://images.unsplash.com/photo-1544980919-e17526d4ed0a?q=80&w=1171&auto=format&fit=crop",
+      image: "/img/IMG_6450.jpeg",
       features: ["Custom software", "Web development", "Managed IT services", "Governance platforms", "Digital transformation", "Enterprise solutions"],
       color: "#F39221",
       bgLight: "bg-orange-50",
@@ -116,7 +117,7 @@ export default function Home() {
       {/* Hero Section - Split Layout with Image */}
       <section className="relative z-10 pt-32 pb-20 px-6 min-h-screen flex items-center">
         <div className="max-w-6xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-1 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -137,7 +138,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative lg:w-140 rounded-2xl overflow-hidden shadow-2xl"
+              className="relative lg:w-120 mx-auto rounded-2xl overflow-hidden shadow-2xl"
             >
               <img
                 src={planes.src}

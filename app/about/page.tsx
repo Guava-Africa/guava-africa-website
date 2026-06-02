@@ -198,11 +198,12 @@ export default function About() {
 
                         {/* Our Story - Black team meeting */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
-                            <div className="h-64 rounded-xl overflow-hidden shadow-lg">
+                            <div className="rounded-xl overflow-hidden shadow-lg">
                                 <img
-                                    src="/ourstory.png"
+                                    // src="/ourstory.png"
+                                    src="/img/IMG_6464.jpeg"
                                     alt="Black colleagues in a meeting"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-contain"
                                 />
                             </div>
                             <div>
