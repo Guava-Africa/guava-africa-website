@@ -20,17 +20,21 @@ export default function Products() {
             image: "/screenshots/hrx.webp",
             icon: "/logos/hrx.png",
             features: ["Job postings", "Candidate tracking", "Employer portal"],
-            color: "#91D050"
+            color: "#91D050",
+            link: "https://hrx.global",
+            external: true
         },
         {
             name: "Abide",
             desc: "All-in-one payment app for churches. Manage tithes, offerings, donations, event registrations, and all church-related payments seamlessly through a single platform.",
             division: "Pay",
             status: "In Development",
-            // image: "",
+            image: "/screenshots/abide.png",
             icon: "/logos/abide.png",
             features: ["Tithes & offerings", "Event payments", "Donation tracking"],
-            color: "#F39221"
+            color: "#F39221",
+            link: null,
+            external: false
         },
         {
             name: "ACX",
@@ -41,37 +45,21 @@ export default function Products() {
             image: "/screenshots/acx.png",
             icon: "/logos/ACX logoText.png",
             features: ["Loan applications", "Credit rating system", "International credit exchange"],
-            color: "#F39221"
+            color: "#F39221",
+            link: null,
+            external: false
         },
         {
-            name: "GuavaPay",
-            desc: "Seamless payment processing platform designed for businesses and individuals. Send, receive, and manage payments with ease, featuring multi-currency support and advanced security.",
-            division: "Pay",
-            status: "In Development",
-            image: "/screenshots/guavapay.png",
-            icon: "/logos/guava-pay.png",
-            features: ["Multi-currency", "Payment links", "Transaction analytics"],
-            color: "#91D050"
-        },
-        {
-            name: "GuavaSupport",
+            name: "Funky GuavaSupport",
             desc: "Customer support portal for clients seeking technical assistance with our applications or other technical issues. Provides streamlined ticket management and support resolution.",
             division: "Tech",
             status: "In Development",
-            // image: "/screenshots/guavasupport.webp",
+            image: "/screenshots/guavasupport.png",
             icon: "/logos/guava-tech.png",
             features: ["Ticket management", "Client support", "Technical assistance"],
-            color: "#91D050"
-        },
-        {
-            name: "GuavaTel",
-            desc: "Internet service provider solution powered by Liquid delivering reliable internet connectivity to communities. Focused on bridging the digital divide and providing accessible internet to the people.",
-            division: "Tel",
-            status: "In Development",
-            // image: "/screenshots/guavatel.webp",
-            icon: "/logos/guava-tel.png",
-            features: ["Internet connectivity", "Community access", "Network solutions"],
-            color: "#00B4D8"
+            color: "#91D050",
+            link: null,
+            external: false
         }
     ];
 
@@ -145,8 +133,12 @@ export default function Products() {
                                     ) : (
                                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
                                             <div className="text-center">
-                                                <div className="text-5xl mb-2">{product.icon}</div>
-                                                <p className="text-gray-400 text-sm font-medium">App Screenshot</p>
+                                                {product.icon ? (
+                                                    <img src={product.icon} alt={`${product.name} icon`} className="w-16 h-16 mx-auto" />
+                                                ) : (
+                                                    <div className="text-5xl mb-2">📱</div>
+                                                )}
+                                                <p className="text-gray-400 text-sm font-medium mt-2">App Screenshot</p>
                                             </div>
                                         </div>
                                     )}
@@ -162,11 +154,9 @@ export default function Products() {
                                 <div className="p-5 flex flex-col flex-grow">
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-2">
-                                            {product.icon ?
-                                            <img src={product.icon} alt={`${product.name} icon`} className="w-10" />
-                                            :
-                                            null
-                                            }
+                                            {product.icon && (
+                                                <img src={product.icon} alt={`${product.name} icon`} className="w-8 h-8 object-contain" />
+                                            )}
                                             <h3 className="text-xl font-bold text-gray-900">{product.name}</h3>
                                         </div>
                                         <div className="text-xs font-mono font-bold px-2 py-1 rounded-full bg-[#F39221]/10 text-[#F39221] whitespace-nowrap">
@@ -186,9 +176,39 @@ export default function Products() {
                                             </span>
                                         ))}
                                     </div>
-                                    <button className="w-full py-2 rounded-lg border border-[#F39221] text-[#F39221] text-sm font-semibold hover:bg-[#F39221] hover:text-white transition mt-auto">
-                                        View Product →
-                                    </button>
+                                    
+                                    {/* Link Button - only show if product has a link */}
+                                    {product.link ? (
+                                        <a
+                                            href={product.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full py-2 rounded-lg bg-gradient-to-r from-[#F39221] to-[#91D050] text-white text-sm font-semibold hover:shadow-lg transition mt-auto flex items-center justify-center gap-2"
+                                        >
+                                            Visit Website
+                                            <svg 
+                                                xmlns="http://www.w3.org/2000/svg" 
+                                                className="h-4 w-4" 
+                                                fill="none" 
+                                                viewBox="0 0 24 24" 
+                                                stroke="currentColor"
+                                            >
+                                                <path 
+                                                    strokeLinecap="round" 
+                                                    strokeLinejoin="round" 
+                                                    strokeWidth={2} 
+                                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                                                />
+                                            </svg>
+                                        </a>
+                                    ) : (
+                                        <button 
+                                            disabled
+                                            className="w-full py-2 rounded-lg border border-gray-300 bg-gray-100 text-gray-400 text-sm font-semibold cursor-not-allowed mt-auto"
+                                        >
+                                            Coming Soon
+                                        </button>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}
