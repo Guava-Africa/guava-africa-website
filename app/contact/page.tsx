@@ -130,7 +130,7 @@ export default function Contact() {
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg"
+                            className="p-6 rounded-xl bg-white/60 backdrop-blur-sm border h-150 border-gray-200 shadow-md hover:shadow-lg"
                         >
                             <div className="text-[#F39221] font-bold mb-4 text-lg">📝 Send us a Message</div>
                             

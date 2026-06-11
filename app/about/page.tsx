@@ -9,8 +9,8 @@ import Navbar from "@/components/Navbar";
 export default function About() {
     // Team data
     const gm = {
-        name: "Nyaradzo Moyo",
-        title: "Managing Director",
+        name: "Paul Charamba",
+        title: "General Manager",
         qualifications: "MBA (University of Cape Town), BSc Computer Engineering (University of Zimbabwe), Executive Leadership Program (Harvard Business School)",
         experience: "15+ years of experience in telecommunications and fintech across Africa. Previously held senior positions at Econet and Liquid Telecom.",
         image: "/team/gm.png",
@@ -53,7 +53,7 @@ export default function About() {
         name: "Eng. Tafadzwa Muguti",
         title: "Group Chairman",
         message: "Over the past decade, Guava has grown from a small infrastructure contractor into a pan-African technology leader. This journey has been driven by our unwavering commitment to innovation, integrity, and the African renaissance. We believe that Africa's time is now, and Guava is proud to be at the forefront of this digital revolution. Our divisions Pay, Tel, and Tech represent our strategic focus on the three pillars of modern economies: financial inclusion, reliable connectivity, and digital transformation. As we look to the future, we remain dedicated to bridging the technology gap across our continent and creating sustainable value for all our stakeholders. Thank you for being part of this incredible journey.",
-        image: "/team/chairman.png",
+        image: "https://pbs.twimg.com/profile_images/1310798303630626816/NI4WFGq4_400x400.jpg",
     };
 
     return (
@@ -229,7 +229,7 @@ export default function About() {
                                             />
                                         </div>
                                         <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-[#F39221] text-white px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
-                                            Managing Director
+                                            General Manager
                                         </div>
                                     </div>
                                     <h3 className="text-xl font-bold text-gray-900 mt-4">{gm.name}</h3>

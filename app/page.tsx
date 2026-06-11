@@ -71,7 +71,7 @@ export default function Home() {
     { name: "africapaciti", file: "africapaciti.webp", link: "https://www.africapaciti.com/" },
     { name: "powertel", file: "powertel.webp", link: "https://www.powertel.co.zw/" },
     { name: "infradevcor", file: "infradevcor.webp", link: "https://www.infradevcor.com/" },
-    { name: "staffing solutions", file: "staffing-solutions.webp", link: "#" },
+    { name: "staffing solutions", file: "ss.webp", link: "#" },
     { name: "agridevcor", file: "agridevcor.webp", link: "https://agridevcor.com/" },
     { name: "payinc", file: "payinc.webp", link: "https://www.payinc.co.za/" },
     { name: "providence", file: "providence.webp", link: "https://www.providencehumancapital.com/" },
@@ -89,13 +89,13 @@ export default function Home() {
 
   // Techy images for the full-width strip - increased height
   const techImages = [
-    "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?q=80&w=1469&auto=format&fit=crop", // Person on computer
-    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1470&auto=format&fit=crop", // Person making payment
-    "https://images.unsplash.com/photo-1461749281345-5a6dd3e762c8?q=80&w=1469&auto=format&fit=crop", // Coding/tech
-    "https://images.unsplash.com/photo-1687422808248-f807f4ea2a2e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Network/server
-    "https://images.unsplash.com/photo-1638544253786-ab3078fe2f3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Network/server
-    "https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Network/server
-    "https://images.unsplash.com/photo-1484788984921-03950022c9ef?q=80&w=1232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Network/server
+    "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?q=80&w=1469&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1470&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1461749281345-5a6dd3e762c8?q=80&w=1469&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1687422808248-f807f4ea2a2e?q=80&w=1170&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1638544253786-ab3078fe2f3f?q=80&w=1170&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?q=80&w=1170&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1484788984921-03950022c9ef?q=80&w=1232&auto=format&fit=crop",
   ];
 
   return (
@@ -103,7 +103,6 @@ export default function Home() {
 
       {/* Enhanced Animated Background Elements - Pushed to Extreme Edges Only */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Moving gradient blobs - pushed to corners */}
         <motion.div
           animate={{ x: mousePos.x * 0.01 - 300, y: mousePos.y * 0.01 - 300 }}
           transition={{ type: "tween", duration: 0.3 }}
@@ -114,8 +113,6 @@ export default function Home() {
           transition={{ type: "tween", duration: 0.5 }}
           className="absolute -bottom-48 -right-48 w-96 h-96 rounded-full bg-[#91D050] opacity-20 blur-[100px]"
         />
-
-        {/* Floating shapes - at extreme edges */}
         <motion.div
           animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], y: [0, 30, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
@@ -126,8 +123,6 @@ export default function Home() {
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-[#91D050] opacity-10 blur-[80px]"
         />
-
-        {/* Coding Tags - at far edges */}
         <motion.div
           animate={{ y: [0, -20, 0], opacity: [0.3, 0.8, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}
@@ -149,8 +144,6 @@ export default function Home() {
         >
           {'<> </>'}
         </motion.div>
-
-        {/* Globe Icon - at edge */}
         <motion.div
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -163,8 +156,6 @@ export default function Home() {
             <line x1="12" y1="2" x2="12" y2="22" stroke="#91D050" strokeWidth="1.5" />
           </svg>
         </motion.div>
-
-        {/* Tech Icons - all at edges */}
         <motion.div
           animate={{ scale: [1, 1.3, 1] }}
           transition={{ duration: 6, repeat: Infinity }}
@@ -235,8 +226,6 @@ export default function Home() {
             <circle cx="12" cy="12" r="4" />
           </svg>
         </motion.div>
-
-        {/* Extra geometric shapes - at far edges */}
         <motion.div
           animate={{ rotate: [0, 45, 0] }}
           transition={{ duration: 15, repeat: Infinity }}
@@ -266,10 +255,9 @@ export default function Home() {
 
       <Navbar />
 
-      {/* Hero Section - Split Layout with Image */}
+      {/* Hero Section */}
       <section className="relative z-10 pt-15 pb-25 px-6 min-h-screen flex items-center">
         <div className="max-w-6xl mx-auto w-full">
-          {/* Larger Logo at the top of hero */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -310,7 +298,6 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Scroll indicator */}
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
@@ -323,7 +310,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Full Width Techy Image Strip - increased height to h-96 */}
+      {/* Full Width Techy Image Strip */}
       <section className="relative z-10 w-full overflow-hidden bg-gray-900">
         <div className="relative">
           <div className="absolute inset-0 bg-black/40 z-10" />
@@ -361,7 +348,7 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* Three Divisions Section - Overview */}
+      {/* Three Divisions Section */}
       <section id="divisions" className="relative z-10 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -396,9 +383,7 @@ export default function Home() {
                     <div className="text-xs text-[#F39221] font-mono">{div.tag}</div>
                   </div>
                 </div>
-
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">{div.shortDesc}</p>
-
                 <div className="flex flex-wrap gap-2 mb-4">
                   {div.features.slice(0, 3).map((f, idx) => (
                     <span key={idx} className="text-xs px-2 py-1 rounded-full bg-[#F39221]/10 text-[#F39221]">
@@ -406,7 +391,6 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-
                 <div className="flex items-end justify-between mt-4 pt-4 border-t border-gray-200">
                   <div />
                   <Link href={`/${div.name.toLowerCase()}`}>
@@ -421,8 +405,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partners Section - Our Growing Guava Network */}
-      <section className="relative z-10 py-16 px-6 ">
+      {/* Partners Section */}
+      <section className="relative z-10 py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -450,9 +434,15 @@ export default function Home() {
                     key={`${partner.file}-${idx}`}
                     className="flex items-center justify-center min-w-24 md:min-w-40 px-2 md:px-3 py-2 md:py-4 bg-transparent transition-transform group"
                   >
-                    <div className="w-20 h-14 md:w-40 md:h-28 flex items-center justify-center transition-transform duration-400 group-hover:scale-105">
+                    <div className="w-20 h-14 md:w-36 md:h-30 flex items-center justify-center transition-transform duration-400 group-hover:scale-105">
                       <Link href={partner.link} target="_blank" aria-label={`Partner ${partner.name}`}>
-                        <Image src={`/partners/${partner.file}`} alt={partner.name} width={160} height={112} className="object-contain" />
+                        <Image 
+                          src={`/partners/${partner.file}`} 
+                          alt={partner.name} 
+                          width={138} 
+                          height={100} 
+                          className="object-contain max-h-16 md:max-h-20 w-auto"
+                        />
                       </Link>
                     </div>
                   </div>
@@ -470,7 +460,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What We Offer Section - Detailed WITH IMAGES */}
+      {/* What We Offer Section */}
       <section id="what-we-offer" className="relative z-10 py-20 px-6 bg-white/80">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -509,7 +499,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Expanded detailed view when a division is selected */}
           {activeDivision && (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -530,7 +519,6 @@ export default function Home() {
                         </div>
                       </div>
                       <p className="text-gray-700 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">{div.fullDesc}</p>
-
                       <div className="mb-6 md:mb-8">
                         <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                           <span className="w-2 h-2 rounded-full bg-[#F39221]" />
@@ -546,13 +534,8 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-
                     <div className="h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-                      <img
-                        src={div.image}
-                        alt={div.name}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={div.image} alt={div.name} className="w-full h-full object-cover" />
                     </div>
                   </div>
                 );
@@ -560,7 +543,6 @@ export default function Home() {
             </motion.div>
           )}
 
-          {/* All divisions view - detailed cards WITH IMAGES */}
           {!activeDivision && (
             <div className="grid grid-cols-1 gap-6 md:gap-8">
               {divisions.map((div, idx) => (
@@ -597,11 +579,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="md:w-80 h-48 md:h-64 rounded-xl overflow-hidden shadow-lg">
-                      <img
-                        src={div.image}
-                        alt={div.name}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={div.image} alt={div.name} className="w-full h-full object-cover" />
                     </div>
                   </div>
                 </motion.div>
@@ -611,7 +589,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Call to Action Section - Before Footer */}
+      {/* Call to Action Section */}
       <section className="relative z-10 py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div
