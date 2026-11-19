@@ -10,7 +10,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-montserrat);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +24,193 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.site-shell {
+  --panel-border: #cedbd4;
+  color: #17251f;
+  background-color: #f6f9f7;
+  background-image: linear-gradient(115deg, #fff5e8, #f9fbfa 47%, #eaf4eb);
+}
+
+.site-shell > section:first-of-type h1 {
+  letter-spacing: -0.045em;
+}
+
+.site-shell > section:first-of-type h1::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(90deg, #f39221 48%, transparent 48% 54%, #77ab46 54%);
+}
+
+@media (min-width: 640px) {
+  .site-shell > .home-hero h1::before {
+    margin-inline: 0;
+  }
+}
+
+@layer components {
+  .tech-panel {
+    border: 1px solid var(--panel-border, #cedbd4);
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 16px rgb(19 40 29 / 0.08);
+  }
+}
+
+.tech-footer {
+  border-block-start: 2px solid transparent;
+  background:
+    radial-gradient(ellipse at 0% 100%, rgb(243 146 33 / 0.15), transparent 45%) padding-box,
+    radial-gradient(ellipse at 100% 0%, rgb(145 208 80 / 0.2), transparent 48%) padding-box,
+    linear-gradient(125deg, #182923, #0c1713 55%, #14271e) padding-box,
+    linear-gradient(90deg, #f39221, #91d050) border-box;
+}
+
+.footer-circuit {
+  position: absolute;
+  width: min(34rem, 46%);
+  height: 11rem;
+  opacity: 0.43;
+  pointer-events: none;
+}
+
+.footer-circuit-left {
+  bottom: 1rem;
+  left: 0;
+  color: #e8a554;
+}
+
+.footer-circuit-right {
+  top: 1rem;
+  right: 0;
+  color: #a0d974;
+  transform: rotate(180deg);
+}
+
+.footer-circuit span {
+  position: absolute;
+  bottom: var(--offset, 1rem);
+  left: 0;
+  width: var(--reach, 80%);
+  height: 3.5rem;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.footer-circuit span:nth-child(2) {
+  --offset: 2.75rem;
+  --reach: 62%;
+}
+
+.footer-circuit span:nth-child(3) {
+  --offset: 4.5rem;
+  --reach: 42%;
+}
+
+.footer-circuit span::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: #13231c;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.footer-brand {
+  background:
+    radial-gradient(circle at 100% 0%, rgb(145 208 80 / 0.15), transparent 55%),
+    linear-gradient(135deg, rgb(38 62 49 / 0.96), rgb(16 30 24 / 0.98));
+  box-shadow: inset 0 1px rgb(255 255 255 / 0.06), 0 14px 28px rgb(0 0 0 / 0.2);
+}
+
+.footer-social {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid rgb(192 226 204 / 0.23);
+  border-radius: 0.5rem;
+  color: #cddbd1;
+  background: #13271d;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.footer-social:hover,
+.footer-social:focus-visible {
+  border-color: #91d050;
+  color: #e5ffca;
+  background-color: #203b28;
+}
+
+.footer-link-group {
+  padding-top: 0.75rem;
+}
+
+.footer-link-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.footer-link-group h3::after {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: linear-gradient(90deg, #f39221, #91d050);
+}
+
+.footer-link-group a {
+  color: #bbcdc2;
+  text-underline-offset: 0.22em;
+}
+
+.footer-link-group a:hover,
+.footer-link-group a:focus-visible {
+  color: #e4f7db;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgb(192 226 204 / 0.18);
+}
+
+.footer-bottom::before,
+.footer-bottom::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.footer-bottom::before {
+  left: 0;
+  color: #f39221;
+}
+
+.footer-bottom::after {
+  right: 0;
+  color: #91d050;
+}
+
+@media (max-width: 767px) {
+  .footer-circuit {
+    opacity: 0.23;
+  }
+}
+
+.product-preview {
+  background-color: #e9f0ec;
+  border-block-end: 1px solid var(--panel-border);
 }

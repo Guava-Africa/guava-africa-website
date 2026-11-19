@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 
 export default function CorporateGovernance() {
     return (
-        <div className="relative min-h-screen bg-linear-to-br from-amber-50 via-white to-green-50 overflow-x-hidden">
+        <div className="site-shell relative min-h-screen overflow-x-hidden">
 
             <Navbar />
 
@@ -99,7 +99,7 @@ export default function CorporateGovernance() {
                         className="space-y-12"
                     >
                         {/* Governance Statement with Picture */}
-                        <div className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                        <div className="p-8 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="text-3xl">🏛️</div>
                                 <h2 className="text-2xl font-bold text-gray-900">Governance Framework</h2>

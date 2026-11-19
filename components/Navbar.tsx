@@ -46,15 +46,19 @@ export default function Navbar() {
 
     const navItems = [
         { name: "Home", href: "/" },
-        { name: "Divisions", href: "#", hasDropdown: true, dropdownType: "divisions" },
-        { name: "Products", href: "/products" },
-        { name: "Services", href: "/services" },
         { name: "About", href: "/about", hasDropdown: true, dropdownType: "about" },
+        { name: "Solutions", href: "/solutions" },
+        { name: "Products", href: "/products" },
         { name: "Contact", href: "/contact" },
+        { name: "Join Us", href: "/join" },
+        // { name: "Divisions", href: "#", hasDropdown: true, dropdownType: "divisions" },
     ];
 
     const aboutDropdownItems = [
+        { name: "Our Company", href: "/about#company" },
+        { name: "Message from Chairman", href: "/about#chairman" },
         { name: "Our Team", href: "/about#team" },
+        { name: "Our Board", href: "/board" },
         { name: "Corporate Governance", href: "/governance" },
     ];
 
@@ -69,17 +73,17 @@ export default function Navbar() {
             {/* Navbar container with animated border */}
             <div className="fixed top-6 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 z-50">
                 {/* Animated border effect - gradient shooting star */}
-                <div className={`absolute -inset-[2px] rounded-full overflow-hidden ${animateBorder ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300 pointer-events-none`}>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-[#F39221] to-[#91D050] animate-shooting-star" />
+                <div className={`absolute -inset-[2px] rounded-lg overflow-hidden ${animateBorder ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300 pointer-events-none`}>
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#F39221] to-[#91D050] animate-shooting-star" />
                 </div>
-                
+
                 {/* Static border gradient (subtle) */}
-                <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-[#F39221]/20 via-[#91D050]/20 to-[#F39221]/20 opacity-50 pointer-events-none" />
-                
+                <div className="absolute -inset-[1px] rounded-lg bg-gradient-to-r from-[#F39221]/20 via-[#91D050]/20 to-[#F39221]/20 opacity-50 pointer-events-none" />
+
                 <motion.nav
                     initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    className={`relative transition-all duration-300 rounded-full px-6 py-2 overflow-visible ${scrolled
+                    className={`tech-panel relative transition-all duration-300 px-6 py-2 overflow-visible ${scrolled
                         ? "bg-white/90 backdrop-blur-xl border border-gray-200"
                         : "bg-white/60 backdrop-blur-md border border-gray-100"
                         }`}
@@ -119,10 +123,10 @@ export default function Navbar() {
                                                             transition={{ duration: 0.1 }}
                                                             className="flex items-center justify-center"
                                                         >
-                                                            <Image 
-                                                                src={Logo} 
-                                                                alt="Guava Logo" 
-                                                                className="h-6 w-auto transition-transform duration-300 hover:scale-110" 
+                                                            <Image
+                                                                src={Logo}
+                                                                alt="Guava Logo"
+                                                                className="h-6 w-auto transition-transform duration-300 hover:scale-110"
                                                             />
                                                         </motion.div>
                                                     ) : (
@@ -148,7 +152,7 @@ export default function Navbar() {
                                             >
                                                 {item.name}
                                             </Link>
-                                            
+
                                             {/* About Dropdown */}
                                             {item.dropdownType === "about" && (
                                                 <AnimatePresence>
@@ -209,10 +213,10 @@ export default function Navbar() {
                     {/* Mobile: left logo + hamburger */}
                     <div className="flex sm:hidden items-center justify-between w-full">
                         <Link href="/" className="flex items-center gap-2 group">
-                            <Image 
-                                src={Logo} 
-                                alt="Guava Logo" 
-                                className="h-8 w-auto transition-transform duration-300 group-hover:scale-110" 
+                            <Image
+                                src={Logo}
+                                alt="Guava Logo"
+                                className="h-8 w-auto transition-transform duration-300 group-hover:scale-110"
                             />
                         </Link>
                         <button

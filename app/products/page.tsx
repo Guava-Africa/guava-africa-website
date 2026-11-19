@@ -3,38 +3,48 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export default function Products() {
-    const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
-
     const products = [
         {
             name: "HRX",
             title: "Human Resources Exchange",
             desc: "Complete HR management system with job posting, candidate tracking, employer portal, and centralized candidate management. Streamline your entire recruitment and HR operations.",
             division: "Tech",
-            status: "Beta",
-            image: "/screenshots/hrx.webp",
-            icon: "/logos/hrx.png",
+            status: "Live",
+            image: "/screenshots/hrx-home.webp",
+            icon: "/logos/hrx-official.png",
             features: ["Job postings", "Candidate tracking", "Employer portal"],
             color: "#91D050",
-            link: "https://hrx.global",
+            link: "https://hrxchange.global/",
             external: true
         },
+        // {
+        //     name: "Abide",
+        //     desc: "All-in-one payment app for churches. Manage tithes, offerings, donations, event registrations, and all church-related payments seamlessly through a single platform.",
+        //     division: "Pay",
+        //     status: "In Development",
+        //     // image: "/screenshots/abide.png",
+        //     icon: "/logos/abide.png",
+        //     features: ["Tithes & offerings", "Event payments", "Donation tracking"],
+        //     color: "#F39221",
+        //     link: null,
+        //     external: false
+        // },
         {
-            name: "Abide",
-            desc: "All-in-one payment app for churches. Manage tithes, offerings, donations, event registrations, and all church-related payments seamlessly through a single platform.",
-            division: "Pay",
-            status: "In Development",
-            image: "/screenshots/abide.png",
-            icon: "/logos/abide.png",
-            features: ["Tithes & offerings", "Event payments", "Donation tracking"],
-            color: "#F39221",
-            link: null,
-            external: false
+            name: "Tag-It",
+            title: "Device Tracking and Protection",
+            desc: "Register and track devices, verify ownership, and report equipment that goes missing. Businesses can manage fleets and receive alerts when protected devices leave approved areas.",
+            division: "Tech",
+            status: "Live",
+            image: "/screenshots/tag-it-home.webp",
+            icon: "/logos/tag-it.png",
+            features: ["Device registry", "Geofence alerts", "Fleet management"],
+            color: "#91D050",
+            link: "https://tag-it.global/",
+            external: true
         },
         {
             name: "ACX",
@@ -50,11 +60,11 @@ export default function Products() {
             external: false
         },
         {
-            name: "Funky GuavaSupport",
+            name: "Gizmo HelpDesk",
             desc: "Customer support portal for clients seeking technical assistance with our applications or other technical issues. Provides streamlined ticket management and support resolution.",
             division: "Tech",
             status: "In Development",
-            image: "/screenshots/guavasupport.png",
+            // image: "/screenshots/guavasupport.png",
             icon: "/logos/guava-tech.png",
             features: ["Ticket management", "Client support", "Technical assistance"],
             color: "#91D050",
@@ -80,7 +90,7 @@ export default function Products() {
     };
 
     return (
-        <div className="relative min-h-screen bg-linear-to-br from-amber-50 via-white to-green-50 overflow-x-hidden">
+        <div className="site-shell relative min-h-screen overflow-x-hidden">
             <Navbar />
 
             {/* Hero */}
@@ -108,75 +118,60 @@ export default function Products() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {products.map((product, i) => (
                             <motion.div
-                                key={i}
+                                key={product.name}
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.05 }}
                                 whileHover={{ y: -8 }}
-                                onMouseEnter={() => setHoveredProduct(i)}
-                                onMouseLeave={() => setHoveredProduct(null)}
-                                className="group rounded-xl bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all overflow-hidden cursor-pointer flex flex-col"
+                                className="tech-panel overflow-hidden bg-white transition-shadow hover:shadow-xl flex flex-col"
                             >
                                 {/* Product Image Area - Fixed 16:9 Aspect Ratio */}
-                                <div className="relative w-full bg-gray-100 overflow-hidden" style={{ aspectRatio: '16 / 9' }}>
+                                <div className="product-preview relative w-full aspect-video overflow-hidden">
                                     {product.image ? (
                                         <div className="relative w-full h-full">
                                             <Image
                                                 src={product.image}
-                                                alt={`${product.name} screenshot`}
+                                                alt={`${product.name} website screenshot`}
                                                 fill
-                                                className="object-cover"
+                                                className="object-contain"
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                                 priority={i < 3}
                                             />
                                         </div>
                                     ) : (
-                                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                                            <div className="text-center">
-                                                {product.icon ? (
-                                                    <img src={product.icon} alt={`${product.name} icon`} className="w-16 h-16 mx-auto" />
-                                                ) : (
-                                                    <div className="text-5xl mb-2">📱</div>
-                                                )}
-                                                <p className="text-gray-400 text-sm font-medium mt-2">App Screenshot</p>
-                                            </div>
+                                        <div className="flex h-full items-center justify-center">
+                                            <Image src={product.icon} alt="" width={64} height={64} className="rounded-lg border border-white/80 bg-white p-2" />
                                         </div>
                                     )}
-                                    {/* Status Badge - Bottom Right Corner */}
-                                    <div className="absolute bottom-3 right-3 z-10">
-                                        <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${getStatusColor(product.status)} shadow-sm backdrop-blur-sm bg-opacity-90`}>
-                                            {product.status}
-                                        </span>
-                                    </div>
                                 </div>
 
                                 {/* Product Info - Flexible height, pushes button to bottom */}
-                                <div className="p-5 flex flex-col flex-grow">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-2">
-                                            {product.icon && (
-                                                <img src={product.icon} alt={`${product.name} icon`} className="w-8 h-8 object-contain" />
-                                            )}
+                                <div className="flex grow flex-col p-5">
+                                    <div className="flex items-center gap-3">
+                                        <img src={product.icon} alt="" className="h-9 w-12 shrink-0 object-contain" />
+                                        <div>
                                             <h3 className="text-xl font-bold text-gray-900">{product.name}</h3>
-                                        </div>
-                                        <div className="text-xs font-mono font-bold px-2 py-1 rounded-full bg-[#F39221]/10 text-[#F39221] whitespace-nowrap">
-                                            {product.division}
+                                            {product.title && (
+                                                <p className="mt-1 text-sm font-medium leading-snug text-gray-600">{product.title}</p>
+                                            )}
                                         </div>
                                     </div>
-                                    <p className="text-gray-400 text-sm leading-relaxed mb-2 mt-2 line-clamp-3">
-                                        {product.title ? product.title : null}
-                                    </p>
-                                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-4">
+                                    <div className="mb-4 mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+                                        <span className="text-sm font-semibold text-gray-600">Guava{product.division}</span>
+                                        <span className={`rounded-full px-2.5 py-1 text-sm font-semibold ${getStatusColor(product.status)}`}>{product.status}</span>
+                                    </div>
+                                    <p className="mb-4 text-base leading-relaxed text-gray-700">
                                         {product.desc}
                                     </p>
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        {product.features.map((feature, idx) => (
-                                            <span key={idx} className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">
+                                    <ul className="mb-5 flex flex-wrap gap-x-4 gap-y-2">
+                                        {product.features.map((feature) => (
+                                            <li key={feature} className="flex items-center gap-2 text-sm text-gray-600">
+                                                <span aria-hidden="true" className="size-1.5 shrink-0 rounded-full bg-[#67993e]" />
                                                 {feature}
-                                            </span>
+                                            </li>
                                         ))}
-                                    </div>
-                                    
+                                    </ul>
+
                                     {/* Link Button - only show if product has a link */}
                                     {product.link ? (
                                         <a
@@ -186,23 +181,23 @@ export default function Products() {
                                             className="w-full py-2 rounded-lg bg-gradient-to-r from-[#F39221] to-[#91D050] text-white text-sm font-semibold hover:shadow-lg transition mt-auto flex items-center justify-center gap-2"
                                         >
                                             Visit Website
-                                            <svg 
-                                                xmlns="http://www.w3.org/2000/svg" 
-                                                className="h-4 w-4" 
-                                                fill="none" 
-                                                viewBox="0 0 24 24" 
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                className="h-4 w-4"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
                                                 stroke="currentColor"
                                             >
-                                                <path 
-                                                    strokeLinecap="round" 
-                                                    strokeLinejoin="round" 
-                                                    strokeWidth={2} 
-                                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                                                 />
                                             </svg>
                                         </a>
                                     ) : (
-                                        <button 
+                                        <button
                                             disabled
                                             className="w-full py-2 rounded-lg border border-gray-300 bg-gray-100 text-gray-400 text-sm font-semibold cursor-not-allowed mt-auto"
                                         >

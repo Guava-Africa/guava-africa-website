@@ -39,7 +39,7 @@ export default function Services() {
     ];
 
     return (
-        <div className="relative min-h-screen bg-linear-to-br from-amber-50 via-white to-green-50 overflow-x-hidden">
+        <div className="site-shell relative min-h-screen overflow-x-hidden">
             <Navbar />
 
             {/* Hero */}
@@ -72,7 +72,7 @@ export default function Services() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
                                 whileHover={{ y: -8 }}
-                                className={`rounded-2xl ${service.bgLight} backdrop-blur-sm border ${service.borderLight} shadow-md hover:shadow-xl transition-all overflow-hidden`}
+                                className={`tech-panel ${service.bgLight} backdrop-blur-sm border ${service.borderLight} shadow-md hover:shadow-xl transition-all overflow-hidden`}
                             >
                                 {/* Large Image */}
                                 <div className="relative w-full h-72 overflow-hidden">

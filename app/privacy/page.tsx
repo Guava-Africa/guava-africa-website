@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 
 export default function Privacy() {
     return (
-        <div className="relative min-h-screen bg-linear-to-br from-amber-50 via-white to-green-50 overflow-x-hidden">
+        <div className="site-shell relative min-h-screen overflow-x-hidden">
 
             <Navbar />
 

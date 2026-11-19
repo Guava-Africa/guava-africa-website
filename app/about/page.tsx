@@ -7,63 +7,25 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export default function About() {
-    // Team data
-    const gm = {
-        name: "Paul Charamba",
-        title: "General Manager",
-        qualifications: "MBA (University of Cape Town), BSc Computer Engineering (University of Zimbabwe), Executive Leadership Program (Harvard Business School)",
-        experience: "15+ years of experience in telecommunications and fintech across Africa. Previously held senior positions at Econet and Liquid Telecom.",
-        image: "/team/gm.png",
-    };
-
-    const divisionHeads = [
-        {
-            name: "Admire Chiwamba",
-            division: "Pay",
-            title: "Head of GuavaPay",
-            qualifications: "MSc Fintech (University of Johannesburg), BCom Information Systems (University of Zimbabwe)",
-            experience: "Former Head of Digital Payments at Nedbank, 10+ years in financial technology.",
-            image: "/team/pay-head.png",
-            color: "#F39221",
-            bgLight: "bg-orange-50",
-        },
-        {
-            name: "Mark Mateus",
-            division: "Tel",
-            title: "Head of GuavaTel",
-            qualifications: "MSc Telecommunications Engineering (University of the Witwatersrand), BEng Electrical Engineering (University of Zimbabwe)",
-            experience: "Former Network Director at TelOne, 12+ years in telecommunications infrastructure.",
-            image: "/team/tel-head.png",
-            color: "#91D050",
-            bgLight: "bg-green-50",
-        },
-        {
-            name: "Tafadzwa Gashira",
-            division: "Tech",
-            title: "Head of GuavaTech",
-            qualifications: "MSc Software Engineering (Oxford University), BSc Computer Science (University of Cape Town)",
-            experience: "Former CTO at Innovate Africa, 8+ years in software development and digital transformation.",
-            image: "/team/tech-head.png",
-            color: "#F39221",
-            bgLight: "bg-orange-50",
-        },
+    const leadership = [
+        { name: "Paul Charamba", role: "Acting General Manager", initials: "PC", accent: "bg-[#f39221] text-[#241607]" },
+        { name: "Tafadzwa Gashira", role: "Technical Manager", initials: "TG", accent: "bg-[#91d050] text-[#172718]" },
     ];
 
     const chairman = {
-        name: "Eng. Tafadzwa Muguti",
-        title: "Group Chairman",
+        name: "Mr Benson Samudzimu",
+        title: "Chairman",
         message: "Over the past decade, Guava has grown from a small infrastructure contractor into a pan-African technology leader. This journey has been driven by our unwavering commitment to innovation, integrity, and the African renaissance. We believe that Africa's time is now, and Guava is proud to be at the forefront of this digital revolution. Our divisions Pay, Tel, and Tech represent our strategic focus on the three pillars of modern economies: financial inclusion, reliable connectivity, and digital transformation. As we look to the future, we remain dedicated to bridging the technology gap across our continent and creating sustainable value for all our stakeholders. Thank you for being part of this incredible journey.",
-        image: "https://pbs.twimg.com/profile_images/1310798303630626816/NI4WFGq4_400x400.jpg",
+        image: "/img/benson.jpg",
     };
 
     return (
-        <div className="relative min-h-screen bg-linear-to-br from-amber-50 via-white to-green-50 overflow-x-hidden">
+        <div className="site-shell relative min-h-screen overflow-x-hidden">
 
             <Navbar />
 
             {/* Animated Tech Artwork - Corners only with subtle movement */}
-            {/* Top Left - Coding icons */}
-            <motion.div 
+            <motion.div
                 animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 className="fixed top-10 left-6 opacity-30 pointer-events-none z-0"
@@ -77,8 +39,7 @@ export default function About() {
                 </svg>
             </motion.div>
 
-            {/* Top Right - Network/Globe */}
-            <motion.div 
+            <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 className="fixed top-10 right-6 opacity-30 pointer-events-none z-0"
@@ -91,8 +52,7 @@ export default function About() {
                 </svg>
             </motion.div>
 
-            {/* Bottom Left - Database/Server */}
-            <motion.div 
+            <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="fixed bottom-10 left-6 opacity-30 pointer-events-none z-0"
@@ -106,8 +66,7 @@ export default function About() {
                 </svg>
             </motion.div>
 
-            {/* Bottom Right - WiFi/Signal */}
-            <motion.div 
+            <motion.div
                 animate={{ opacity: [0.2, 0.5, 0.2] }}
                 transition={{ duration: 4, repeat: Infinity }}
                 className="fixed bottom-10 right-6 opacity-30 pointer-events-none z-0"
@@ -119,8 +78,7 @@ export default function About() {
                 </svg>
             </motion.div>
 
-            {/* Middle Left - Code brackets */}
-            <motion.div 
+            <motion.div
                 animate={{ x: [0, -5, 0] }}
                 transition={{ duration: 5, repeat: Infinity }}
                 className="fixed top-1/2 left-6 opacity-20 pointer-events-none z-0"
@@ -128,8 +86,7 @@ export default function About() {
                 <text x="0" y="0" fontSize="28" fill="#F39221" fontFamily="monospace">{'{  }'}</text>
             </motion.div>
 
-            {/* Middle Right - Terminal prompt */}
-            <motion.div 
+            <motion.div
                 animate={{ opacity: [0.1, 0.4, 0.1] }}
                 transition={{ duration: 7, repeat: Infinity }}
                 className="fixed top-1/3 right-6 opacity-20 pointer-events-none z-0"
@@ -137,7 +94,7 @@ export default function About() {
                 <text x="0" y="0" fontSize="24" fill="#91D050" fontFamily="monospace">{'$>'}</text>
             </motion.div>
 
-            {/* Hero Section */}
+            {/* Hero Section - Our Company */}
             <section className="relative z-10 pt-32 pb-12 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -171,8 +128,8 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Main Content Container - Consistent padding and spacing */}
-            <section id="team" className="relative z-10 py-12 px-6">
+            {/* Main Content Container */}
+            <section className="relative z-10 py-12 px-6">
                 <div className="max-w-6xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -180,105 +137,92 @@ export default function About() {
                         transition={{ delay: 0.2 }}
                         className="space-y-12"
                     >
-                        {/* Chairman's Message Section */}
-                        <div  className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="text-3xl">📜</div>
-                                <h2 className="text-2xl font-bold text-gray-900">Message from Our Chairman</h2>
-                            </div>
-                            <div className="flex flex-col lg:flex-row gap-8 items-start">
-                                <div className="lg:w-1/3 flex flex-col items-center">
-                                    <div className="w-88 h-88 rounded-xl overflow-hidden shadow-lg mb-4">
-                                        <img
-                                            src={chairman.image}
-                                            alt={chairman.name}
-                                            className="w-full h-full object-cover"
-                                        />
+                        {/* Chairman's Message Section - Trendy & Professional */}
+                        <div className="relative overflow-hidden tech-panel bg-gradient-to-br from-white via-orange-50/50 to-green-50/50 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-500">
+                            {/* Decorative accent bar */}
+                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F39221] via-[#91D050] to-[#F39221]"></div>
+
+                            {/* Decorative circles */}
+                            <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-[#F39221]/5 blur-2xl"></div>
+                            <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-[#91D050]/5 blur-2xl"></div>
+
+                            <div className="relative p-8 md:p-10" id="chairman">
+                                <div className="flex items-center gap-3 mb-8">
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#F39221] to-[#91D050] flex items-center justify-center text-2xl shadow-lg">
+                                        📜
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 text-center">{chairman.name}</h3>
-                                    <p className="text-[#F39221] text-sm text-center">{chairman.title}</p>
-                                </div>
-                                <div className="lg:w-2/3">
-                                    <p className="text-gray-700 leading-relaxed italic text-lg">
-                                        "{chairman.message}"
-                                    </p>
-                                    <div className="mt-6 pt-6 border-t border-gray-200">
-                                        <p className="text-gray-600">Eng. Tafadzwa Muguti </p>
-                                        <p className="text-sm text-gray-500">Group Chairman, Africapaciti</p>
+                                    <div>
+                                        <h2 className="text-2xl font-bold text-gray-900">Message from Our Chairman</h2>
+                                        <p className="text-sm text-gray-500">A word from our leadership</p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                         {/* Our Team - Organizational Structure */}
-                        <div className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="text-3xl">👥</div>
-                                <h2 className="text-2xl font-bold text-gray-900">Our Team</h2>
-                            </div>
-                            
-                            {/* Group Managing Director - Top */}
-                            <div className="flex justify-center mb-12">
-                                <div className="w-full max-w-md text-center">
-                                    <div className="relative mb-6">
-                                        <div className="w-40 h-40 mx-auto rounded-full overflow-hidden shadow-xl border-4 border-[#F39221]/30">
-                                            <img
-                                                src={gm.image}
-                                                alt={gm.name}
-                                                className="w-full h-full object-cover"
-                                            />
-                                        </div>
-                                        <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-[#F39221] text-white px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
-                                            General Manager
-                                        </div>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mt-4">{gm.name}</h3>
-                                    <p className="text-gray-600 text-sm mt-2">{gm.qualifications}</p>
-                                    <p className="text-gray-500 text-sm mt-2">{gm.experience}</p>
-                                </div>
-                            </div>
-
-                            {/* Connecting line from GM to divisions */}
-                            <div className="relative flex justify-center mb-8">
-                                <div className="w-px h-12 bg-gradient-to-b from-[#F39221] to-[#91D050]"></div>
-                            </div>
-
-                            {/* Division Heads - 3 columns */}
-                            <div>
-                                <h3 className="text-xl font-bold text-gray-900 text-center mb-8">Division Heads</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                    {divisionHeads.map((head, idx) => (
-                                        <motion.div
-                                            key={idx}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: idx * 0.1 }}
-                                            className={`text-center p-6 rounded-xl ${head.bgLight} border border-gray-200 shadow-md hover:shadow-lg transition`}
-                                        >
-                                            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg mb-4 border-4 border-white">
+                                <div className="flex flex-col lg:flex-row gap-10 items-center">
+                                    <div className="lg:w-1/3 flex flex-col items-center">
+                                        <div className="relative">
+                                            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#F39221] to-[#91D050] opacity-20 blur-md"></div>
+                                            <div className="relative w-56 h-56 rounded-xl overflow-hidden shadow-xl border-4 border-white">
                                                 <img
-                                                    src={head.image}
-                                                    alt={head.name}
+                                                    src={chairman.image}
+                                                    alt={chairman.name}
                                                     className="w-full h-full object-cover"
                                                 />
                                             </div>
-                                            <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3`}
-                                                style={{ backgroundColor: `${head.color}20`, color: head.color }}>
-                                                {head.division}
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-900 mt-4 text-center">{chairman.name}</h3>
+                                        <p className="text-[#F39221] text-sm font-medium text-center">{chairman.title}</p>
+                                        <div className="flex gap-1 mt-2">
+                                            <span className="w-2 h-2 rounded-full bg-[#F39221]"></span>
+                                            <span className="w-2 h-2 rounded-full bg-[#91D050]"></span>
+                                            <span className="w-2 h-2 rounded-full bg-[#F39221]"></span>
+                                        </div>
+                                    </div>
+
+                                    <div className="lg:w-2/3">
+                                        <div className="relative">
+                                            <svg className="absolute -top-2 -left-2 w-8 h-8 text-[#F39221]/20" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4.995v10.009l-4.978.001zm-9.034 0v-7.391c0-5.704 3.748-9.57 9.005-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.995v10.009l-5 .001z" />
+                                            </svg>
+                                            <p className="text-gray-700 leading-relaxed italic text-lg pl-6">
+                                                "{chairman.message}"
+                                            </p>
+                                        </div>
+                                        <div className="mt-6 pt-6 border-t border-gray-200 flex items-center gap-4">
+                                            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#F39221]/10 to-[#91D050]/10 flex items-center justify-center text-2xl">
+                                                👤
                                             </div>
-                                            <h3 className="text-lg font-bold text-gray-900">{head.name}</h3>
-                                            <p className="text-[#F39221] text-sm font-medium mb-2">{head.title}</p>
-                                            <p className="text-gray-600 text-xs mt-2">{head.qualifications}</p>
-                                            <p className="text-gray-500 text-xs mt-2">{head.experience}</p>
-                                        </motion.div>
-                                    ))}
+                                            <div>
+                                                <p className="text-gray-800 font-semibold">Mr Benson Samudzimu</p>
+                                                <p className="text-sm text-gray-500">Chairman, Guava Africa</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
+                        <section id="team" aria-labelledby="team-heading" className="tech-panel grid scroll-mt-24 overflow-hidden bg-[#142d24] md:grid-cols-[1.1fr_1fr]">
+                            <div className="relative flex min-h-56 items-end md:min-h-80">
+                                <Image src="/team.png" alt="" fill sizes="(max-width: 767px) 100vw, 55vw" className="object-cover object-center" />
+                                <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-[#0b1e17] via-[#0b1e17]/35 to-transparent" />
+                                <h2 id="team-heading" className="relative p-6 text-4xl font-bold tracking-tight text-white sm:p-8 md:text-5xl">Our Team</h2>
+                            </div>
+                            <ol className="flex flex-col justify-center divide-y divide-white/15 px-6 py-3 sm:px-8 md:py-8">
+                                {leadership.map(({ name, role, initials, accent }) => (
+                                    <li key={role} className="flex items-center gap-4 py-5">
+                                        <span aria-hidden="true" className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold ${accent}`}>{initials}</span>
+                                        <div>
+                                            <h3 className="text-xl font-bold tracking-tight text-white">{name}</h3>
+                                            <p className="mt-1 text-sm font-medium text-[#c6dece]">{role}</p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ol>
+                        </section>
+
                         {/* Vision & Mission */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                            <div className="p-8 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="text-3xl">🔭</div>
                                     <h2 className="text-2xl font-bold text-gray-900">Our Vision</h2>
@@ -288,7 +232,7 @@ export default function About() {
                                 </p>
                             </div>
 
-                            <div className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                            <div className="p-8 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="text-3xl">🎯</div>
                                     <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
@@ -300,7 +244,7 @@ export default function About() {
                         </div>
 
                         {/* Our Story */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-8 rounded-2xl bg-green-50 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-8 tech-panel bg-green-50 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition" id="company">
                             <div className="rounded-xl overflow-hidden shadow-lg">
                                 <img
                                     src="/img/IMG_6464.jpeg"
@@ -323,7 +267,7 @@ export default function About() {
                         </div>
 
                         {/* Bridging Africa's Technology Gap */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-8 rounded-2xl bg-orange-50 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-8 tech-panel bg-orange-50 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                             <div>
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="text-3xl">🌍</div>
@@ -346,7 +290,7 @@ export default function About() {
                         </div>
 
                         {/* Our Values */}
-                        <div className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                        <div className="p-8 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                             <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Values</h2>
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                                 <div className="text-center p-4 rounded-lg hover:bg-[#F39221]/5 transition">
@@ -381,8 +325,6 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
-
-                       
                     </motion.div>
                 </div>
             </section>

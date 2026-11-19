@@ -1,49 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export default function Contact() {
-    const [hoveredOffice, setHoveredOffice] = useState<number | null>(null);
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-    });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
-
     const offices = [
-        { city: "Johannesburg", country: "South Africa", address: "2191, Sandton, Johannesburg", phone: "+27 835367696", email: "info_sa@guava.africa" },
-        { city: "Harare", country: "Zimbabwe", address: "Eastgate Center 2nd Floor, Golden Bridge, Corner Robert Mugabe & Sam Nujoma Street, Harare, Zimbabwe", phone: "+263 242 257156/7", email: "info_zw@guava.africa" },
+        { city: "Johannesburg", country: "South Africa", address: "2191, Sandton, Johannesburg", phone: "+27 835367696", email: "info@guava.africa" },
+        { city: "Harare", country: "Zimbabwe", address: "55 Lawley, Belvedere, Harare, Zimbabwe", phone: "+263 242 257156/7", email: "info@guava.africa" },
     ];
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        
-        // Simulate form submission - replace with actual API call
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setSubmitStatus("success");
-            setFormData({ name: "", email: "", subject: "", message: "" });
-            setTimeout(() => setSubmitStatus("idle"), 5000);
-        }, 1500);
-    };
-
     return (
-        <div className="relative min-h-screen bg-linear-to-br from-amber-50 via-white to-green-50 overflow-x-hidden">
+        <div className="site-shell relative min-h-screen overflow-x-hidden">
 
             <Navbar />
 
@@ -63,7 +31,7 @@ export default function Contact() {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div className="mx-auto grid max-w-5xl grid-cols-1 items-start gap-6 md:grid-cols-2">
                         {/* Left Column - Contact Info & Offices */}
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
@@ -71,21 +39,20 @@ export default function Contact() {
                             className="space-y-6"
                         >
                             {/* Email Section */}
-                            <div className="p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#F39221]/30 transition shadow-md hover:shadow-lg">
+                            <div className="p-6 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#F39221]/30 transition shadow-md hover:shadow-lg">
                                 <div className="text-[#F39221] font-bold mb-2 text-lg">📧 Email</div>
-                                <a href="mailto:info_sa@guava.africa" className="text-gray-600 hover:text-[#F39221] transition block">info_sa@guava.africa</a>
-                                <a href="mailto:info_zw@guava.africa" className="text-gray-600 hover:text-[#F39221] transition block mt-2">info_zw@guava.africa</a>
+                                <a href="mailto:info@guava.africa" className="text-gray-600 hover:text-[#F39221] transition block mt-2">info@guava.africa</a>
                             </div>
 
                             {/* Phone Section */}
-                            <div className="p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#F39221]/30 transition shadow-md hover:shadow-lg">
+                            <div className="p-6 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#F39221]/30 transition shadow-md hover:shadow-lg">
                                 <div className="text-[#F39221] font-bold mb-2 text-lg">📞 Phone</div>
                                 <a href="tel:+27835367696" className="text-gray-600 hover:text-[#F39221] transition block">+27 835367696 (South Africa)</a>
                                 <a href="tel:+263242257156/7" className="text-gray-600 hover:text-[#F39221] transition block mt-2">+263 242 257156/7 (Zimbabwe)</a>
                             </div>
 
                             {/* Social Section */}
-                            <div className="p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#F39221]/30 transition shadow-md hover:shadow-lg">
+                            <div className="p-6 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#F39221]/30 transition shadow-md hover:shadow-lg">
                                 <div className="text-[#F39221] font-bold mb-2 text-lg">💬 Social</div>
                                 <div className="flex gap-4 mt-2">
                                     <a href="https://x.com/Guava_Africa" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black transition">
@@ -106,119 +73,21 @@ export default function Contact() {
                                 </div>
                             </div>
 
-                            {/* Offices Section */}
-                            <div className="p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#F39221]/30 transition shadow-md hover:shadow-lg">
-                                <div className="text-[#F39221] font-bold mb-4 text-lg">🌍 Our Offices</div>
-                                {offices.map((office, i) => (
-                                    <motion.div
-                                        key={i}
-                                        className={`mb-4 last:mb-0 p-4 rounded-lg transition-all cursor-pointer ${hoveredOffice === i ? "bg-[#F39221]/5 border border-[#F39221]/20" : "bg-white/40"
-                                            }`}
-                                        onMouseEnter={() => setHoveredOffice(i)}
-                                        onMouseLeave={() => setHoveredOffice(null)}
-                                    >
-                                        <div className="font-semibold text-gray-900">{office.city}, {office.country}</div>
-                                        <div className="text-gray-500 text-sm mt-1">{office.address}</div>
-                                        <div className="text-gray-500 text-sm mt-1">📞 {office.phone}</div>
-                                        <div className="text-gray-500 text-sm">✉️ {office.email}</div>
-                                    </motion.div>
-                                ))}
-                            </div>
                         </motion.div>
 
-                        {/* Right Column - Contact Form */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            className="p-6 rounded-xl bg-white/60 backdrop-blur-sm border h-150 border-gray-200 shadow-md hover:shadow-lg"
-                        >
-                            <div className="text-[#F39221] font-bold mb-4 text-lg">📝 Send us a Message</div>
-                            
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                <div>
-                                    <label htmlFor="name" className="block text-gray-700 text-sm font-medium mb-1">
-                                        Your Name *
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleInputChange}
-                                        required
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white/80 focus:border-[#F39221] focus:ring-2 focus:ring-[#F39221]/20 outline-none transition"
-                                        placeholder="John Doe"
-                                    />
+                        {/* Offices Section */}
+                        <div className="p-6 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#F39221]/30 transition shadow-md hover:shadow-lg">
+                            <div className="text-[#F39221] font-bold mb-4 text-lg">🌍 Our Offices</div>
+                            {offices.map((office) => (
+                                <div key={office.city} className="mb-4 rounded-lg bg-white/60 p-4 last:mb-0">
+                                    <div className="font-semibold text-gray-900">{office.city}, {office.country}</div>
+                                    <div className="text-gray-500 text-sm mt-1">{office.address}</div>
+                                    <div className="text-gray-500 text-sm mt-1">📞 {office.phone}</div>
+                                    <div className="text-gray-500 text-sm">✉️ {office.email}</div>
                                 </div>
+                            ))}
+                        </div>
 
-                                <div>
-                                    <label htmlFor="email" className="block text-gray-700 text-sm font-medium mb-1">
-                                        Email Address *
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleInputChange}
-                                        required
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white/80 focus:border-[#F39221] focus:ring-2 focus:ring-[#F39221]/20 outline-none transition"
-                                        placeholder="john@example.com"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="subject" className="block text-gray-700 text-sm font-medium mb-1">
-                                        Subject
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="subject"
-                                        name="subject"
-                                        value={formData.subject}
-                                        onChange={handleInputChange}
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white/80 focus:border-[#F39221] focus:ring-2 focus:ring-[#F39221]/20 outline-none transition"
-                                        placeholder="How can we help you?"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="message" className="block text-gray-700 text-sm font-medium mb-1">
-                                        Message *
-                                    </label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        value={formData.message}
-                                        onChange={handleInputChange}
-                                        required
-                                        rows={5}
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white/80 focus:border-[#F39221] focus:ring-2 focus:ring-[#F39221]/20 outline-none transition resize-none"
-                                        placeholder="Tell us about your inquiry..."
-                                    />
-                                </div>
-
-                                {submitStatus === "success" && (
-                                    <div className="p-3 rounded-lg bg-green-100 text-green-700 text-sm">
-                                        Thank you! Your message has been sent. We'll get back to you soon.
-                                    </div>
-                                )}
-
-                                {submitStatus === "error" && (
-                                    <div className="p-3 rounded-lg bg-red-100 text-red-700 text-sm">
-                                        Something went wrong. Please try again.
-                                    </div>
-                                )}
-
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="w-full py-3 rounded-full bg-gradient-to-r from-[#F39221] to-[#91D050] text-white font-semibold shadow-md hover:shadow-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    {isSubmitting ? "Sending..." : "Send Message →"}
-                                </button>
-                            </form>
-                        </motion.div>
                     </div>
                 </div>
             </section>

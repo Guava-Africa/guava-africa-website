@@ -91,7 +91,7 @@ export default function Home() {
   const techImages = [
     "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?q=80&w=1469&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1470&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1461749281345-5a6dd3e762c8?q=80&w=1469&auto=format&fit=crop",
+    "/img/software-engineering.webp",
     "https://images.unsplash.com/photo-1687422808248-f807f4ea2a2e?q=80&w=1170&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1638544253786-ab3078fe2f3f?q=80&w=1170&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?q=80&w=1170&auto=format&fit=crop",
@@ -99,7 +99,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-linear-to-br from-amber-50 via-white to-green-50 overflow-x-hidden">
+    <div className="site-shell relative min-h-screen overflow-x-hidden">
 
       {/* Enhanced Animated Background Elements - Pushed to Extreme Edges Only */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -256,7 +256,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative z-10 pt-15 pb-25 px-6 min-h-screen flex items-center">
+      <section className="home-hero relative z-10 pt-15 pb-25 px-6 min-h-screen flex items-center">
         <div className="max-w-6xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -267,28 +267,30 @@ export default function Home() {
             <Image src={Logo} alt="Guava Logo" width={680} height={312} className="w-auto h-38 md:h-72" />
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-2"
+              className="text-center sm:text-left lg:col-span-2"
             >
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight sm:text-left text-center">
                 Disrupt the
                 <span className="bg-linear-to-r from-[#F39221] to-[#91D050] bg-clip-text text-transparent"> Status Quo</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 max-w-2xl sm:text-left text-center">
-                Three divisions. One company.
-                Guava provides the infrastructure for tomorrow's economy.
+                Guava builds payment systems, connectivity infrastructure, and software for businesses across Africa.
               </p>
+              <Link href="/solutions" className="mt-6 inline-flex items-center rounded-lg bg-[#17382b] px-6 py-3 font-semibold text-white shadow-md transition-colors hover:bg-[#24513e] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#17382b]">
+                Explore our solutions
+              </Link>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative lg:w-120 mx-auto rounded-2xl overflow-hidden shadow-2xl"
+              className="tech-panel relative w-full max-w-lg mx-auto overflow-hidden"
             >
               <img
                 src={planes.src}
@@ -323,7 +325,7 @@ export default function Home() {
                 <div key={idx} className="relative w-100 md:w-160 h-100 flex-shrink-0">
                   <img
                     src={img}
-                    alt={`Tech scene ${idx + 1}`}
+                    alt=""
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -344,6 +346,9 @@ export default function Home() {
           }
           .animate-scroll {
             animation: scroll 90s linear infinite;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .animate-scroll { animation: none; }
           }
         `}</style>
       </section>
@@ -374,7 +379,7 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
                 onClick={() => setActiveDivision(div.name.toLowerCase())}
-                className={`group p-6 md:p-8 rounded-2xl ${div.bgLight} backdrop-blur-sm border ${div.borderLight} shadow-md hover:shadow-xl transition-all cursor-pointer`}
+                className={`tech-panel group p-6 md:p-8 ${div.bgLight} backdrop-blur-sm border ${div.borderLight} shadow-md hover:shadow-xl transition-all cursor-pointer`}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="text-3xl md:text-4xl">{div.icon}</div>

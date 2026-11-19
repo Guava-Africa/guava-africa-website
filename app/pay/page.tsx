@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 
 export default function Pay() {
     return (
-        <div className="relative min-h-screen bg-linear-to-br from-amber-50 via-white to-green-50 overflow-x-hidden">
+        <div className="site-shell relative min-h-screen overflow-x-hidden">
             <Navbar />
 
             <section className="relative z-10 pt-32 pb-20 px-6">
@@ -38,7 +38,7 @@ export default function Pay() {
                         transition={{ delay: 0.2 }}
                         className="space-y-8"
                     >
-                        <div className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                        <div className="p-8 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="text-3xl">🎯</div>
                                 <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
@@ -48,7 +48,7 @@ export default function Pay() {
                             </p>
                         </div>
 
-                        <div className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                        <div className="p-8 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="text-3xl">💰</div>
                                 <h2 className="text-2xl font-bold text-gray-900">What We Do</h2>
@@ -64,7 +64,7 @@ export default function Pay() {
                             </p>
                         </div>
 
-                        <div className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                        <div className="p-8 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                             <h2 className="text-2xl font-bold text-gray-900 mb-4">Key Features</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F39221]/5 transition">
@@ -98,7 +98,7 @@ export default function Pay() {
                             </div>
                         </div>
 
-                        <div className="p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
+                        <div className="p-8 tech-panel bg-white/60 backdrop-blur-sm border border-gray-200 shadow-md hover:shadow-lg transition">
                             <h2 className="text-2xl font-bold text-gray-900 mb-4">Why Choose GuavaPay?</h2>
                             <div className="space-y-4">
                                 <div className="flex items-start gap-3">
